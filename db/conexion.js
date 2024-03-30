@@ -5,6 +5,8 @@ const password = encodeURIComponent('Relectura1515@@');
 const URI = `mongodb+srv://flextonica:${password}@flextonicacluster.oyhbcld.mongodb.net/?retryWrites=true&w=majority&appName=FlextonicaCluster`;
 
 mongoose.connect(URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
     tlsAllowInvalidCertificates: true, // Habilitar certificados SSL no válidos
 })
 
