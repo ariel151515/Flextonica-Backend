@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-//require('dotenv').config();
+require('dotenv').config();
 //const password = encodeURIComponent('Relectura1515@@'); 
 
 // 4.1 or later
