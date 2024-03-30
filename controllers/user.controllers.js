@@ -1,6 +1,5 @@
 const User = require('../models/User');
 
-
 // Endpoint POST para crea un usuario en mongo con el UID de Firebase
 exports.createUserWithFirebaseUIDInMongo = async (req, res) => {
     const { uid } = req.params;

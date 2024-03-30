@@ -11,3 +11,4 @@ mongoose.connect(URI, {
 })
 
 module.exports = mongoose.connection; // Exporta la conexión
+
