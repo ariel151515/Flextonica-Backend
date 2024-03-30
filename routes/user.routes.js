@@ -6,6 +6,8 @@ const ctrl = require('../controllers/user.controllers');
 
 router.post('/datauser/:uid', ctrl.createUserWithFirebaseUIDInMongo);
 router.get('/datauser/:uid', ctrl.getUserByFirebaseUIDFromMongo);
-router.get('/datauser/premium/:uid', ctrl.getPremiumStatus);
+
+// quedo obsoleta porque obtengo el estado de premium con el user.premium
+// router.get('/datauser/premium/:uid', ctrl.getPremiumStatus);
 
 module.exports = router;
