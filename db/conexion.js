@@ -1,9 +1,3 @@
-const mongoose = require("mongoose");
-require('dotenv').config();
-//const password = encodeURIComponent('Relectura1515@@'); 
-
-// 4.1 or later
-//const URI = `mongodb+srv://flextonica:${password}@flextonicacluster.oyhbcld.mongodb.net/?retryWrites=true&w=majority&appName=FlextonicaCluster`;
 
 mongoose.connect(URI, {
     useNewUrlParser: true,
