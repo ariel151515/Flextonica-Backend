@@ -1,0 +1,9 @@
+Connect to FlextonicaCluster
+------------------------------------
+Username: flextonica
+Password: Relectura1515@@
+
+
+Tutorial API:
+Nodejs REST API con JWT y Roles (Autorización y Autenticación) & Mongodb
+https://www.youtube.com/watch?v=lV7mxivGX_I
