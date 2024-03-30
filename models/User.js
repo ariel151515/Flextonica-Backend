@@ -5,7 +5,7 @@ const userSchema = new Schema({
         type: String,
         unique: true,
     },
-    premiumn: {
+    premium: {
         type: Boolean,
         unique: false,
     }

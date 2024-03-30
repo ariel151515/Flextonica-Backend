@@ -6,5 +6,6 @@ const ctrl = require('../controllers/user.controllers');
 
 router.post('/datauser/:uid', ctrl.createUserWithFirebaseUIDInMongo);
 router.get('/datauser/:uid', ctrl.getUserByFirebaseUIDFromMongo);
+router.get('/datauser/:uid', ctrl.getPremiumStatus);
 
 module.exports = router;
