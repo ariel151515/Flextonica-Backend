@@ -6,6 +6,7 @@ exports.createUserWithFirebaseUIDInMongo = async (req, res) => {
 
     // Verifica si se proporciona un UID válido
     if (!uid) {
+        console.log(uid)
         return res.status(400).json({ message: 'UID no proporcionado' });
     }
 
