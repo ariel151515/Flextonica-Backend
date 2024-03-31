@@ -4,6 +4,11 @@ const User = require('../models/User');
 exports.createUserWithFirebaseUIDInMongo = async (req, res) => {
     const { uid } = req.params;
 
+    // Verifica si se proporciona un UID válido
+    if (!uid) {
+        return res.status(400).json({ message: 'UID no proporcionado' });
+    }
+
     try {
        // Crea un nuevo usuario con el uid proporcionado por Firebase
        const newUser = new User({

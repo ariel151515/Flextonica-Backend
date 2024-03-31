@@ -23,10 +23,10 @@ app.get('/', (req, res) => {
 
 // importaciones de las rutas
 const userRoutes = require('../routes/user.routes.js');
-
+const objetivoRoutes = require('../routes/objetivos.routes.js');
 
 // configuraciones de las rutas
 app.use('/api', userRoutes);
-
+app.use('/api', objetivoRoutes);
 
 module.exports = app;
