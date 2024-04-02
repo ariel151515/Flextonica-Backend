@@ -41,6 +41,10 @@ const userSchema = new Schema({
         type: String,
         unique: false,
     },
+    pesoInicial:{
+        type: String,
+        unique: false,
+    }
 }, {
     timestamps: true // Habilita los campos createdAt y updatedAt
 });

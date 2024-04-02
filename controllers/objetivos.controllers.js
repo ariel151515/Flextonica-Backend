@@ -1,34 +1,14 @@
 const Objetivo = require('../models/Objetivo');
 
-exports.addObjetivo = async (req, res) => {
-    const { uid,
-            nivelDeActividad,
-            edad,
-            deficitCalorico,
-            proteinas,
-            carbohidratos,
-            grasas,
-            margen,
-            tmb,
-            caloriasAConsumir
-        } = req.body;
+exports.addPesoInicial = async (req, res) => {
+    const { pesoInicial } = req.body;
 
     try{
-        const newObjetivo = new Objetivo({
-                    uid,
-                    nivelDeActividad,
-                    edad,
-                    deficitCalorico,
-                    proteinas,
-                    carbohidratos,
-                    grasas,
-                    margen,
-                    tmb,
-                    caloriasAConsumir
-            });
-
+        const newObjetivo = new Objetivo({ pesoInicial:pesoInicial });
         const saveObjetivo = await newObjetivo.save();
+
         console.log('Objetivo creado:', saveObjetivo);
+
         res.status(201).json({ saveObjetivo });
 
     }catch(err) {

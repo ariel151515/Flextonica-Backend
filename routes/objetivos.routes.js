@@ -4,7 +4,7 @@ const router = Router();
 
 const ctrl = require('../controllers/objetivos.controllers');
 
-router.post('/addObjetivo', ctrl.addObjetivo);
+router.post('/addPesoInicial', ctrl.addPesoInicial);
 
 
 module.exports = router;
