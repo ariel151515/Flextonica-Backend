@@ -4,7 +4,8 @@ const router = Router();
 
 const ctrl = require('../controllers/objetivos.controllers');
 
-router.post('/addPesoInicial', ctrl.addPesoInicial);
+// Crea un documento de onjetivos
+router.post('/creaObjetivo/:uid', ctrl.creaObjetivo);
 
 
 module.exports = router;

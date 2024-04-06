@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
     uid: {
         type: String,
-        unique: true,
+        unique: false,
     },
     nivelDeActividad: {
         type: String,
