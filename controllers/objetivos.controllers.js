@@ -7,6 +7,11 @@ exports.creaObjetivo = async (req, res) => {
      const uidString = uid.toString();
 
     try{
+
+      // Verifico no exista ya el objetivo creado
+      objetivoExiste = Objetivo.find({uid: uid});
+
+      if(!objetivoExiste) {
             const newObjetivo = new Objetivo({ 
                 uid:uidString,
                 nivelDeActividad:'0', 
@@ -25,6 +30,10 @@ exports.creaObjetivo = async (req, res) => {
             console.log('Objetivo creado:', saveObjetivo);
 
             res.status(201).json({ saveObjetivo });
+        
+      }else{
+        console.log('El objetivo ya existee')
+      }
 
     }catch(err) {
         console.log(err);
