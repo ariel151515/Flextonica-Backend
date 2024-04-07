@@ -67,7 +67,7 @@ exports.actualizaObjetivo = async (req, res) => {
     }
 
         // Actualizar los campos del objetivo con los datos proporcionados
-        objetivo.nivelDeActicvidad = nivelDeActicvidad,
+        objetivo.nivelDeActividad = nivelDeActividad,
         objetivo.edad = edad,
         objetivo.deficitCalorico = deficitCalorico,
         objetivo.proteinas = proteinas,
