@@ -4,7 +4,6 @@ exports.creaObjetivo = async (req, res) => {
     const { uid } = req.params;
 
     try{
-
          // Verificar si ya existe un objetivo con el mismo UID
          const objetivoExistente = await Objetivo.findOne({ uid });
 
@@ -77,6 +76,9 @@ exports.actualizaObjetivo = async (req, res) => {
 
     // Guardar el objetivo actualizado en la base de datos
     await objetivo.save();
+
+    // Devolver una respuesta con los datos actualizados
+    res.status(200).json({ message: 'Objetivo actualizado correctamente', objetivo });
 
   }catch(err) {
     console.error('Error al actualizar el objetivo:', err);
