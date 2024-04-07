@@ -44,5 +44,42 @@ exports.creaObjetivo = async (req, res) => {
 
 // Actualiza el objetovo
 exports.actualizaObjetivo = async (req, res) => {
+  const { uid } = req.params;
+  const {
+    pesoInicial,
+    nivelDeActividad,
+    edad,
+    deficitCalorico,
+    proteinas,
+    carbohidratos,
+    grasas,
+    margen
+  } = req.body;
 
+  try{
+    // Buscar el objetivo por uid
+    let objetivo = await Objetivo.findOne({ uid });
+
+     // Si no se encuentra el objetivo, devolver un mensaje de error
+     if (!objetivo) {
+        return res.status(404).json({ message: 'Objetivo no encontrado' });
+    }
+
+    // Actualizar los campos del objetivo con los datos proporcionados
+    objetivo.pesoInicial = pesoInicial;
+    objetivo.nivelDeActividad = nivelDeActividad;
+    objetivo.edad = edad;
+    objetivo.deficitCalorico = deficitCalorico;
+    objetivo.proteinas = proteinas;
+    objetivo.carbohidratos = carbohidratos;
+    objetivo.grasas = grasas;
+    objetivo.margen = margen;
+
+    // Guardar el objetivo actualizado en la base de datos
+    await objetivo.save();
+
+  }catch(err) {
+    console.error('Error al actualizar el objetivo:', err);
+    res.status(500).json({ message: 'Error al actualizar el objetivo' });
+  }
 }
