@@ -64,15 +64,15 @@ exports.actualizaObjetivo = async (req, res) => {
         return res.status(404).json({ message: 'Objetivo no encontrado' });
     }
 
-    // Actualizar los campos del objetivo con los datos proporcionados
-    objetivo.pesoInicial = pesoInicial;
-    objetivo.nivelDeActividad = nivelDeActividad;
-    objetivo.edad = edad;
-    objetivo.deficitCalorico = deficitCalorico;
-    objetivo.proteinas = proteinas;
-    objetivo.carbohidratos = carbohidratos;
-    objetivo.grasas = grasas;
-    objetivo.margen = margen;
+        // Actualizar los campos del objetivo con los datos proporcionados
+        objetivo.pesoInicial = pesoInicial;
+        objetivo.nivelDeActividad = nivelDeActividad;
+        objetivo.edad = edad;
+        objetivo.deficitCalorico = deficitCalorico;
+        objetivo.proteinas = proteinas;
+        objetivo.carbohidratos = carbohidratos;
+        objetivo.grasas = grasas;
+        objetivo.margen = margen;
 
     // Guardar el objetivo actualizado en la base de datos
     await objetivo.save();
