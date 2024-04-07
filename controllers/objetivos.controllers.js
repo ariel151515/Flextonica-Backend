@@ -8,7 +8,6 @@ exports.creaObjetivo = async (req, res) => {
 
     try{
 
-
       // Verifico no exista ya el objetivo creado
       objetivoExiste = Objetivo.find({uid: uid});
 
@@ -33,7 +32,7 @@ exports.creaObjetivo = async (req, res) => {
             res.status(201).json({ saveObjetivo });
         
       }else{
-        console.log('El objetivo ya existe')
+        console.log('El objetivo ya existee')
       }
 
     }catch(err) {
