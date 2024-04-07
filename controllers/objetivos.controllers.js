@@ -7,24 +7,34 @@ exports.creaObjetivo = async (req, res) => {
      const uidString = uid.toString();
 
     try{
-        const newObjetivo = new Objetivo({ 
-            uid:uidString,
-            nivelDeActividad:'0', 
-            edad:'0',
-            deficitCalorico:'0', 
-            proteinas:'0',
-            carbohidratos:'0',
-            grasas:'0',
-            margen:'0', 
-            tmb:'0',
-            caloriasAConsumir:'0', 
-            pesoInicial:'0'
-         });
-         
-        const saveObjetivo = await newObjetivo.save();
-        console.log('Objetivo creado:', saveObjetivo);
 
-        res.status(201).json({ saveObjetivo });
+
+      // Verifico no exista ya el objetivo creado
+      objetivoExiste = Objetivo.find({uid: uid});
+
+      if(!objetivoExiste) {
+            const newObjetivo = new Objetivo({ 
+                uid:uidString,
+                nivelDeActividad:'0', 
+                edad:'0',
+                deficitCalorico:'0', 
+                proteinas:'0',
+                carbohidratos:'0',
+                grasas:'0',
+                margen:'0', 
+                tmb:'0',
+                caloriasAConsumir:'0', 
+                pesoInicial:'0'
+            });
+            
+            const saveObjetivo = await newObjetivo.save();
+            console.log('Objetivo creado:', saveObjetivo);
+
+            res.status(201).json({ saveObjetivo });
+        
+      }else{
+        console.log('El objetivo ya existe')
+      }
 
     }catch(err) {
         console.log(err);
@@ -33,3 +43,7 @@ exports.creaObjetivo = async (req, res) => {
 
 };
 
+// Actualiza el objetovo
+exports.actualizaObjetivo = async (req, res) => {
+
+}
