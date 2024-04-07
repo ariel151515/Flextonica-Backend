@@ -45,7 +45,7 @@ exports.creaObjetivo = async (req, res) => {
 exports.actualizaObjetivo = async (req, res) => {
   const { uid } = req.params;
   const {
-    nivelDeActicvidad,
+    nivelDeActividad,
     edad,
     deficitCalorico,
     proteinas,
