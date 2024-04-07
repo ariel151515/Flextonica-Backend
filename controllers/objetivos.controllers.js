@@ -3,10 +3,18 @@ const Objetivo = require('../models/Objetivo');
 exports.creaObjetivo = async (req, res) => {
     const { uid } = req.params;
 
-     // Convertir UID a string
-     const uidString = uid.toString();
-
     try{
+
+         // Verificar si ya existe un objetivo con el mismo UID
+         const objetivoExistente = await Objetivo.findOne({ uid });
+
+         if (objetivoExistente) {
+             console.log('Ya existe un objetivo para este usuario');
+             return res.status(400).json({ message: 'Ya existe un objetivo para este usuario' });
+         }
+
+           // Convertir UID a string
+            const uidString = uid.toString();
 
             const newObjetivo = new Objetivo({ 
                 uid:uidString,
