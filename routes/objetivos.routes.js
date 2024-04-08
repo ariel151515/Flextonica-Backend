@@ -10,4 +10,7 @@ router.post('/creaObjetivo/:uid', ctrl.creaObjetivo);
 // Actualiza el documento objetivo
 router.put('/actualizaObjetivo/:uid', ctrl.actualizaObjetivo);
 
+// Trae el objetivo por usuario
+router.get('/traeObjetivoPorUsuario/:uid', ctrl.traeObjetivoPorUsuario);
+
 module.exports = router;

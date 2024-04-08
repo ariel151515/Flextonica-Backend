@@ -30,7 +30,6 @@ exports.createUserWithFirebaseUIDInMongo = async (req, res) => {
 };
 
 
-
 // Endpoint GET para obtener un usuario por su UID
 exports.getUserByFirebaseUIDFromMongo = async (req, res) => {
     const { uid } = req.params;

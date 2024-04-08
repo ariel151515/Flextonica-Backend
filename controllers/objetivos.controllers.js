@@ -1,5 +1,6 @@
 const Objetivo = require('../models/Objetivo');
 
+// Crea un bjetivo x usuario
 exports.creaObjetivo = async (req, res) => {
     const { uid } = req.params;
 
@@ -89,5 +90,27 @@ exports.actualizaObjetivo = async (req, res) => {
   }catch(err) {
     console.error('Error al actualizar el objetivo:', err);
     res.status(500).json({ message: 'Error al actualizar el objetivo' });
+  }
+}
+
+
+// Trae el objetivo por usuario
+exports.traeObjetivoPorUsuario = async (req, res) => {
+  const { uid } = req.params;
+  
+  try {
+    let objetivo = await Objetivo.findOne({ uid });
+
+    // Si no se encuentra el objetivo, devolver un mensaje de error
+    if (!objetivo) {
+        return res.status(404).json({ message: 'Objetivo no encontrado' });
+    }
+
+     // Devolver una respuesta con los datos actualizados
+     res.status(200).json({ message: 'Objetivo encontrado', objetivo });
+
+  }catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Error al obtener el objetivo' });
   }
 }
