@@ -41,6 +41,8 @@ exports.creaObjetivo = async (req, res) => {
 
 };
 
+
+
 // Actualiza el objetovo
 exports.actualizaObjetivo = async (req, res) => {
   const { uid } = req.params;
@@ -67,23 +69,23 @@ exports.actualizaObjetivo = async (req, res) => {
     }
 
         // Actualizar los campos del objetivo con los datos proporcionados
-        objetivo.nivelDeActividad = nivelDeActividad,
-        objetivo.edad = edad,
-        objetivo.deficitCalorico = deficitCalorico,
-        objetivo.proteinas = proteinas,
-        objetivo.carbohidratos = carbohidratos,
-        objetivo.grasas = grasas,
-        objetivo.margen = margen,
+        objetivo.nivelDeActividad = nivelDeActividad;
+        objetivo.edad = edad;
+        objetivo.deficitCalorico = deficitCalorico;
+        objetivo.proteinas = proteinas;
+        objetivo.carbohidratos = carbohidratos;
+        objetivo.grasas = grasas;
+        objetivo.margen = margen;
         objetivo.tmb = tmb;
         objetivo.caloriasAConsumir = caloriasAConsumir;
-        objetivo.pesoInicial = pesoInicial
+        objetivo.pesoInicial = pesoInicial;
 
     // Guardar el objetivo actualizado en la base de datos
     await objetivo.save();
 
     // Devolver una respuesta con los datos actualizados
     res.status(200).json({ message: 'Objetivo actualizado correctamente', objetivo });
-
+  
   }catch(err) {
     console.error('Error al actualizar el objetivo:', err);
     res.status(500).json({ message: 'Error al actualizar el objetivo' });
