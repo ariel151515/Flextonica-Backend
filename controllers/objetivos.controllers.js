@@ -20,12 +20,11 @@ exports.creaObjetivo = async (req, res) => {
                 uid:uidString,
                 nivelDeActividad:'Poco o ninguno', 
                 edad:'',
-                deficitCalorico:'', 
+                porcentaje:'', 
                 proteinas:'25',
                 carbohidratos:'50',
                 grasas:'25',
                 margen:'', 
-                tmb:'',
                 pesoInicial:''
             });
             
