@@ -18,16 +18,16 @@ exports.creaObjetivo = async (req, res) => {
 
             const newObjetivo = new Objetivo({ 
                 uid:uidString,
-                nivelDeActividad:'0', 
-                edad:'0',
-                deficitCalorico:'0', 
+                nivelDeActividad:' ', 
+                edad:' ',
+                deficitCalorico:' ', 
                 proteinas:'25',
                 carbohidratos:'50',
                 grasas:'25',
-                margen:'0', 
-                tmb:'0',
-                caloriasAConsumir:'0', 
-                pesoInicial:'0'
+                margen:' ', 
+                tmb:' ',
+                caloriasAConsumir:' ', 
+                pesoInicial:' '
             });
             
             const saveObjetivo = await newObjetivo.save();
