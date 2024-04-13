@@ -33,14 +33,6 @@ const userSchema = new Schema({
         type: String,
         unique: false,
     },
-    tmb: {
-        type: String,
-        unique: false,
-    },
-    caloriasAConsumir: {
-        type: String,
-        unique: false,
-    },
     pesoInicial:{
         type: String,
         unique: false,

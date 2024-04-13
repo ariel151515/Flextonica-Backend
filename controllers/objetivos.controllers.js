@@ -26,7 +26,6 @@ exports.creaObjetivo = async (req, res) => {
                 grasas:'25',
                 margen:'', 
                 tmb:'',
-                caloriasAConsumir:'', 
                 pesoInicial:''
             });
             
