@@ -21,9 +21,9 @@ exports.creaObjetivo = async (req, res) => {
                 nivelDeActividad:'0', 
                 edad:'0',
                 deficitCalorico:'0', 
-                proteinas:'0',
-                carbohidratos:'0',
-                grasas:'0',
+                proteinas:'25',
+                carbohidratos:'50',
+                grasas:'25',
                 margen:'0', 
                 tmb:'0',
                 caloriasAConsumir:'0', 
@@ -41,7 +41,6 @@ exports.creaObjetivo = async (req, res) => {
     }
 
 };
-
 
 
 // Actualiza el objetovo
