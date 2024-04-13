@@ -18,7 +18,7 @@ exports.creaObjetivo = async (req, res) => {
 
             const newObjetivo = new Objetivo({ 
                 uid:uidString,
-                nivelDeActividad:'', 
+                nivelDeActividad:'Poco o ninguno', 
                 edad:'',
                 deficitCalorico:'', 
                 proteinas:'25',
