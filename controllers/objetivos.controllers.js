@@ -18,14 +18,18 @@ exports.creaObjetivo = async (req, res) => {
 
             const newObjetivo = new Objetivo({ 
                 uid:uidString,
-                nivelDeActividad:'Poco o ninguno', 
                 edad:'',
-                porcentaje:'', 
+                pesoInicial:'',
+                nivelDeActividad:'Poco o ninguno',
+                tmb:'',
+                porcentaje:'',
+                deficitCalorico:'', 
+                superavitCalorico:'',
                 proteinas:'25',
                 carbohidratos:'50',
                 grasas:'25',
                 margen:'', 
-                pesoInicial:''
+                
             });
             
             const saveObjetivo = await newObjetivo.save();
@@ -45,16 +49,17 @@ exports.creaObjetivo = async (req, res) => {
 exports.actualizaObjetivo = async (req, res) => {
   const { uid } = req.params;
   const {
-    nivelDeActividad,
     edad,
+    pesoInicial,
+    nivelDeActividad,
+    tmb,
+    porcentaje,
     deficitCalorico,
+    superavitCalorico,
     proteinas,
     carbohidratos,
     grasas,
     margen,
-    tmb,
-    caloriasAConsumir,
-    pesoInicial
   } = req.body;
 
   try{
@@ -66,18 +71,19 @@ exports.actualizaObjetivo = async (req, res) => {
         return res.status(404).json({ message: 'Objetivo no encontrado' });
     }
 
-        // Actualizar los campos del objetivo con los datos proporcionados
-        objetivo.nivelDeActividad = nivelDeActividad;
-        objetivo.edad = edad;
-        objetivo.deficitCalorico = deficitCalorico;
-        objetivo.proteinas = proteinas;
-        objetivo.carbohidratos = carbohidratos;
-        objetivo.grasas = grasas;
-        objetivo.margen = margen;
-        objetivo.tmb = tmb;
-        objetivo.caloriasAConsumir = caloriasAConsumir;
-        objetivo.pesoInicial = pesoInicial;
-
+     // Actualizar los campos del objetivo con los datos proporcionados
+     objetivo.edad = edad;
+     objetivo.pesoInicial = pesoInicial;
+     objetivo.nivelDeActividad = nivelDeActividad;
+     objetivo.tmb = tmb;
+     objetivo.porcentaje = porcentaje;
+     objetivo.deficitCalorico = deficitCalorico;
+     objetivo.superavitCalorico = superavitCalorico;
+     objetivo.proteinas = proteinas;
+     objetivo.carbohidratos = carbohidratos;
+     objetivo.grasas = grasas;
+     objetivo.margen = margen;
+       
     // Guardar el objetivo actualizado en la base de datos
     await objetivo.save();
 
