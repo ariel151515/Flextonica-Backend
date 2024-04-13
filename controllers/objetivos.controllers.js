@@ -29,7 +29,7 @@ exports.creaObjetivo = async (req, res) => {
                 carbohidratos:'50',
                 grasas:'25',
                 margen:'', 
-                
+                factor:''
             });
             
             const saveObjetivo = await newObjetivo.save();
@@ -60,6 +60,7 @@ exports.actualizaObjetivo = async (req, res) => {
     carbohidratos,
     grasas,
     margen,
+    factor
   } = req.body;
 
   try{
@@ -83,6 +84,7 @@ exports.actualizaObjetivo = async (req, res) => {
      objetivo.carbohidratos = carbohidratos;
      objetivo.grasas = grasas;
      objetivo.margen = margen;
+     objetivo.factor = factor;
        
     // Guardar el objetivo actualizado en la base de datos
     await objetivo.save();
