@@ -13,7 +13,7 @@ const userSchema = new Schema({
         type: String,
         unique: false,
     },
-    deficitCalorico: {
+    porcentaje: {
         type: String,
         unique: false,
     },
