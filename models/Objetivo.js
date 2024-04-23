@@ -18,37 +18,25 @@ const userSchema = new Schema({
         unique: false,
     },
     balanceEnergetico: {
-        tmb: {
-            type: String,
-            unique: false,
-        },
-        superhabit: {
-            type: String,
-            unique: false,
-        },
-        deficit: {
-            type: String,
-            unique: false,
-        },
+        type: String,
+        unique: false,
     },
     porcentaje: {
         type: String,
         unique: false,
     },
-    macronutrientes: {
-        proteinas: {
-            type: String,
-            unique: false,
+    proteinas: {
+        type: String,
+        unique: false,
         },
-        carbohidratos: {
-            type: String,
-            unique: false,
+    carbohidratos: {
+        type: String,
+        unique: false,
         },
-        grasas: {
-            type: String,
-            unique: false,
+    grasas: {
+        type: String,
+        unique: false,
         },
-    },
     margen: {
         type: String,
         unique: false,
