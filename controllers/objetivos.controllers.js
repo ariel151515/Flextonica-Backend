@@ -21,9 +21,18 @@ exports.creaObjetivo = async (req, res) => {
                 edad:'',
                 pesoInicial:'',
                 nivelDeActividad:'',
-                balanceEnergetico:{tmb:'', superhabit:'', deficit:''},
-                macronutrientes:{proteinas:'', carbohidratos:'', grasas:''},
-                margen:''
+                balanceEnergetico: {
+                    tmb:'',
+                    superhabit:'',
+                    deficit:'',
+                    porcentaje:'',
+                },
+                macronutrientes: {
+                    proteinas: '', // Asegúrate de obtener este valor si es necesario
+                    carbohidratos: '', // Asegúrate de obtener este valor si es necesario
+                    grasas: '' // Asegúrate de obtener este valor si es necesario
+                },
+                margen: '' // Asegúrate de obtener este valor si es necesario
             });
             
             const saveObjetivo = await newObjetivo.save();
