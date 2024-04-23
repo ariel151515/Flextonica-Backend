@@ -20,16 +20,10 @@ exports.creaObjetivo = async (req, res) => {
                 uid:uidString,
                 edad:'',
                 pesoInicial:'',
-                nivelDeActividad:'Poco o ninguno',
-                tmb:'',
-                porcentaje:'',
-                deficitCalorico:'', 
-                superavitCalorico:'',
-                proteinas:'25',
-                carbohidratos:'50',
-                grasas:'25',
-                margen:'', 
-                factor:''
+                nivelDeActividad:'',
+                balanceEnergético:{tmb:'', superhabit:'', deficit:''},
+                macronutrientes:{proteinas:'', carbohidratos:'', grasas:''},
+                margen:''
             });
             
             const saveObjetivo = await newObjetivo.save();
@@ -96,6 +90,7 @@ exports.actualizaObjetivo = async (req, res) => {
     console.error('Error al actualizar el objetivo:', err);
     res.status(500).json({ message: 'Error al actualizar el objetivo' });
   }
+
 }
 
 
@@ -119,3 +114,4 @@ exports.traeObjetivoPorUsuario = async (req, res) => {
     res.status(500).json({ message: 'Error al obtener el objetivo' });
   }
 }
+
