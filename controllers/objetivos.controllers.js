@@ -21,7 +21,7 @@ exports.creaObjetivo = async (req, res) => {
                 edad:'',
                 pesoInicial:'',
                 nivelDeActividad:'',
-                balanceEnergético:{tmb:'', superhabit:'', deficit:''},
+                balanceEnergetico:{tmb:'', superhabit:'', deficit:''},
                 macronutrientes:{proteinas:'', carbohidratos:'', grasas:''},
                 margen:''
             });
