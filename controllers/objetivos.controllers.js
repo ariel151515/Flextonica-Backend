@@ -49,15 +49,12 @@ exports.actualizaObjetivo = async (req, res) => {
     edad,
     pesoInicial,
     nivelDeActividad,
-    tmb,
+    balanceEnergetico,
     porcentaje,
-    deficitCalorico,
-    superavitCalorico,
-    proteinas,
-    carbohidratos,
-    grasas,
-    margen,
-    factor
+    proteinas, 
+    carbohidratos, 
+    grasas, 
+    margen, 
   } = req.body;
 
   try{
@@ -73,16 +70,14 @@ exports.actualizaObjetivo = async (req, res) => {
      objetivo.edad = edad;
      objetivo.pesoInicial = pesoInicial;
      objetivo.nivelDeActividad = nivelDeActividad;
-     objetivo.tmb = tmb;
+     objetivo.balanceEnergetico = balanceEnergetico;
      objetivo.porcentaje = porcentaje;
-     objetivo.deficitCalorico = deficitCalorico;
-     objetivo.superavitCalorico = superavitCalorico;
      objetivo.proteinas = proteinas;
      objetivo.carbohidratos = carbohidratos;
      objetivo.grasas = grasas;
      objetivo.margen = margen;
-     objetivo.factor = factor;
-       
+
+     
     // Guardar el objetivo actualizado en la base de datos
     await objetivo.save();
 
