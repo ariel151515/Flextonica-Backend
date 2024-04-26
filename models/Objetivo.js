@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const userObjetivo = new Schema({
+const objetivoSchema = new Schema({
     uid: {
         type: String,
         unique: false,
@@ -45,4 +45,4 @@ const userObjetivo = new Schema({
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
 
-module.exports = model('Objetivo', userObjetivo);
+module.exports = model('Objetivo', objetivoSchema);
