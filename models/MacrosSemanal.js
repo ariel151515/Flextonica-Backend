@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema({
+const  macrosSemanalSchema = new Schema({
     uid: {
         type: String,
         unique: false,
@@ -45,4 +45,4 @@ const userSchema = new Schema({
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
 
-module.exports = model('MacrosSemanal', userSchema);
+module.exports = model('MacrosSemanal', macrosSemanalSchema);
