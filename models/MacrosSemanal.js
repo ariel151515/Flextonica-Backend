@@ -45,4 +45,4 @@ const macrosSemanalSchema = new Schema({
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
 
-module.exports = model('MacrosSemanal', macrosSemanalSchema);
+module.exports = model('MacrosSemanal', userSchema);

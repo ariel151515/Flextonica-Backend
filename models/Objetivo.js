@@ -45,4 +45,4 @@ const objetivoSchema = new Schema({
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
 
-module.exports = model('Objetivo', objetivoSchema);
+module.exports = model('Objetivo', userSchema);
