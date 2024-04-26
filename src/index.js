@@ -16,3 +16,5 @@ connection.on('error', (err) => {
     console.error('Error de conexión a MongoDB:', err);
     process.exit(1); // Termina el proceso con un código de error
 });
+
+// esto es el index
