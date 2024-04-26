@@ -30,12 +30,12 @@ exports.creaObjetivo = async (req, res) => {
             });
             
             const saveObjetivo = await newObjetivo.save();
-            console.log('Objetivo creado:', saveObjetivo);
+            //console.log('Objetivo creado:', saveObjetivo);
 
             res.status(201).json({ saveObjetivo });
         
     }catch(err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json({ message: 'Error al crear el objetivo' });
     }
 
@@ -85,7 +85,7 @@ exports.actualizaObjetivo = async (req, res) => {
     res.status(200).json({ message: 'Objetivo actualizado correctamente', objetivo });
   
   }catch(err) {
-    console.error('Error al actualizar el objetivo:', err);
+    // console.error('Error al actualizar el objetivo:', err);
     res.status(500).json({ message: 'Error al actualizar el objetivo' });
   }
 
@@ -108,7 +108,7 @@ exports.traeObjetivoPorUsuario = async (req, res) => {
      res.status(200).json({ message: 'Objetivo encontrado', objetivo });
 
   }catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json({ message: 'Error al obtener el objetivo' });
   }
 }
