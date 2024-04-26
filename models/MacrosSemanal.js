@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const macrosSemanalSchema = new Schema({
+const userSchema = new Schema({
     uid: {
         type: String,
         unique: false,
