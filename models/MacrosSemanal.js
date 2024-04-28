@@ -18,10 +18,10 @@ const getInicioSemanaActual = () => {
 
 // Función para obtener el fin de la semana actual en formato "DD/MM/YYYY"
 const getFinSemanaActual = () => {
-    const inicioSemana = getInicioSemanaActual();
+    const inicioSemana = new Date(getInicioSemanaActual());
     const finSemana = new Date(inicioSemana); // Clonar la fecha de inicio de la semana
 
-    finSemana.setDate(finSemana.getDate() + 6); // Sumar 6 días para llegar al sábado (fin de la semana)
+    finSemana.setDate(inicioSemana.getDate() + 6); // Sumar 6 días para llegar al sábado (fin de la semana)
 
     // Formatear la fecha en "DD/MM/YYYY"
     const dia = finSemana.getDate();
