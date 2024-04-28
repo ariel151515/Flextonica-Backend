@@ -71,4 +71,4 @@ const macrosSemanalSchema = new Schema({
 });
 
 // Exportar el modelo 'MacrosSemanal' basado en el esquema
-module.exports = model('MacrosSemanal', macrosSemanalSchema);
+module.exports = model('MacrosSemanal
