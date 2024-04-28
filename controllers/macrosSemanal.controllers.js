@@ -32,15 +32,7 @@ exports.macrosSemanal = async (req, res) => {
             },
             nota: {
                 contenido: '0'
-            },
-            fechaDeInicioDeLaSemanaActual:{
-              type: Date,
-              default: Date.now()
-            },
-            fechaDeFindeLaSemanaActual:{
-                type: Date,
-                default: Date.now()
-              },
+            }
         });
 
         // Guardar el nuevo documento en la base de datos
