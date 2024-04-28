@@ -10,7 +10,7 @@ exports.macrosSemanal = async (req, res) => {
 
         if (macrosSemanal) {
             console.log('Ya existe un macrosSemanal para este usuario');
-            return res.status(400).json({ message: 'Ya existe un objetivo para este usuario' });
+            return res.status(400).json({ message: 'Ya existe un objeto MacrosSemanal para este usuario' });
         }
 
         // Crear un nuevo documento de macrosSemanal
@@ -32,14 +32,22 @@ exports.macrosSemanal = async (req, res) => {
             },
             nota: {
                 contenido: '0'
-            }
+            },
+            fechaDeInicioDeLaSemanaActual:{
+              type: Date,
+              default: Date.now()
+            },
+            fechaDeFindeLaSemanaActual:{
+                type: Date,
+                default: Date.now()
+              },
         });
 
         // Guardar el nuevo documento en la base de datos
         await newMacrosSemanal.save();
 
         // Enviar una respuesta al cliente
-        res.status(201).json({ message: 'MacrosSemana creada correctamente' });
+        res.status(201).json({ message: 'MacrosSemana creado correctamente' });
 
     } catch (err) {
         console.log('Error al crear macrosSemana', err);
