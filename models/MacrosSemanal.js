@@ -57,11 +57,11 @@ const macrosSemanalSchema = new Schema({
         tipo: String,
         contenido: String
     },
-    fechaDeInicioDeLaSemanaActual: {
+    fechaInicio: {
         type: String,
         default: getInicioSemanaActual // Utilizar la función para obtener el inicio de la semana actual como valor por defecto
     },
-    fechaDeFindeLaSemanaActual: {
+    fechaFin: {
         type: String,
         default: getFinSemanaActual // Utilizar la función para obtener el fin de la semana actual como valor por defecto
     }
