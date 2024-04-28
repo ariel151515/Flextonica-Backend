@@ -6,7 +6,7 @@ const getInicioSemanaActual = () => {
     const diaDeLaSemana = hoy.getDay();
     const inicioSemana = new Date(hoy); // Clonar la fecha actual
 
-    inicioSemana.setDate(hoy.getDate() - diaDeLaSemana); // Restar los días transcurridos desde el inicio de la semana (domingo)
+    inicioSemana.setDate(hoy.getDate() - diaDeLaSemana + (diaDeLaSemana === 0 ? -6 : 1)); // Ajuste si hoy es domingo
     inicioSemana.setHours(0, 0, 0, 0); // Establecer la hora a las 00:00:00
 
     // Formatear la fecha en "DD/MM/YYYY"
