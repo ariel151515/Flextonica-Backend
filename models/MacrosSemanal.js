@@ -16,6 +16,7 @@ const getInicioSemanaActual = () => {
     return `${dia < 10 ? '0' : ''}${dia}/${mes < 10 ? '0' : ''}${mes}/${anio}`;
 };
 
+
 // Función para obtener el fin de la semana actual en formato "DD/MM/YYYY"
 const getFinSemanaActual = () => {
     const inicioSemana = new Date(getInicioSemanaActual());
@@ -29,6 +30,7 @@ const getFinSemanaActual = () => {
     const anio = finSemana.getFullYear();
     return `${dia < 10 ? '0' : ''}${dia}/${mes < 10 ? '0' : ''}${mes}/${anio}`;
 };
+
 
 // Esquema para los macros semanales
 const macrosSemanalSchema = new Schema({

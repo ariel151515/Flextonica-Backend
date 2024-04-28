@@ -28,6 +28,6 @@ const macrosSemanalRoutes = require('../routes/macrosSemanal.routes.js');
 // configuraciones de las rutas
 app.use('/api', userRoutes);
 app.use('/api', objetivoRoutes);
-app.use('/api', macrosSemanalRoutes);
+//app.use('/api', macrosSemanalRoutes);
 
 module.exports = app;
