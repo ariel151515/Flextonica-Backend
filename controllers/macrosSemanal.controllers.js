@@ -49,3 +49,24 @@ exports.macrosSemanal = async (req, res) => {
         res.status(500).json({ message: 'Error al crear macrosSemana' });
     }
 }
+
+
+// Trae por uid y por fechas un documento de macrsSemana
+exports.getMacrosSemanal = async (req, res) => {
+    const { uid, inicioSemana, finSemana } = req.params;
+
+    console.log(inicioSemana, finSemana);
+
+    try {
+        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin:finSemana});
+        if (!macrosSemanal) {
+            return res.status(404).json({ message: 'No se encontró MacrosSemanal para este usuario' });
+        }
+        res.status(200).json({ macrosSemanal });
+        
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Error al obtener MacrosSemanal' });
+    
+    }
+}
