@@ -3,6 +3,7 @@ const MacrosSemanal = require('../models/MacrosSemanal');
 // Crea un documento de macros semanal
 exports.macrosSemanal = async (req, res) => {
     const { uid } = req.params;
+    const { inicioSemana, finSemana } = req.body;
 
     try {
         // Verificar si ya existe un documento macrosSemanal
@@ -32,7 +33,9 @@ exports.macrosSemanal = async (req, res) => {
             },
             nota: {
                 contenido: '0'
-            }
+            },
+            fechaInicio: inicioSemana,
+            fechaFin: finSemana
         });
 
         // Guardar el nuevo documento en la base de datos
