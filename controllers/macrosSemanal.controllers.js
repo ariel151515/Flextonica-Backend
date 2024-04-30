@@ -56,7 +56,7 @@ exports.getMacrosSemanal = async (req, res) => {
     const { uid, inicioSemana, finSemana } = req.params;
 
     try {
-        const macrosSemanal = await MacrosSemanal.findOne({ uid });
+        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin:finSemana});
         if (!macrosSemanal) {
             return res.status(404).json({ message: 'No se encontró MacrosSemanal para este usuario' });
         }
