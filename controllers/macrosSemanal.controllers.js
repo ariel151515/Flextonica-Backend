@@ -53,8 +53,7 @@ exports.macrosSemanal = async (req, res) => {
 
 // Trae por uid y por fechas un documento de macrsSemana
 exports.getMacrosSemanal = async (req, res) => {
-    const { uid } = req.params;
-    const { inicioSemana, finSemana} = req.body;
+    const { uid, inicioSemana, finSemana } = req.params;
 
     try {
         const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin:finSemana});
