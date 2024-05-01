@@ -76,9 +76,12 @@ exports.geAndCreatetMacrosSemanal = async (req, res) => {
     const { inicioSemana, finSemana } = req.body;
 
     try {
-      
-            // Crear un nuevo documento de macrosSemanal
-            const newMacrosSemanal = new MacrosSemanal({
+
+        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin:finSemana});
+        if (!macrosSemanal) {
+
+             // Crear un nuevo documento de macrosSemanal
+             const newMacrosSemanal = new MacrosSemanal({
                 uid,
                 objetivos: {
                     objetivo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
@@ -106,7 +109,10 @@ exports.geAndCreatetMacrosSemanal = async (req, res) => {
       
         // Enviar una respuesta al cliente
         res.status(201).json(newMacrosSemanal);
-
+           
+        }else{
+            res.status(201).json(macrosSemanal);
+        }
 
     } catch (err) {
         console.log(err);
