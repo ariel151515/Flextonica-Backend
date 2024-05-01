@@ -76,12 +76,12 @@ exports.geAndCreatetMacrosSemanal = async (req, res) => {
     const { inicioSemana, finSemana } = req.body;
 
     try {
+        // Busca el documento MacrosSemanal en la base de datos
+        let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
 
-        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin:finSemana});
         if (!macrosSemanal) {
-
-             // Crear un nuevo documento de macrosSemanal
-             const newMacrosSemanal = new MacrosSemanal({
+            // Si no se encuentra, crea un nuevo documento de macrosSemanal
+            const newMacrosSemanal = new MacrosSemanal({
                 uid,
                 objetivos: {
                     objetivo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
@@ -104,15 +104,12 @@ exports.geAndCreatetMacrosSemanal = async (req, res) => {
                 fechaFin: finSemana
             });
 
-            // Guardar el nuevo documento en la base de datos
-            await newMacrosSemanal.save();
-      
-        // Enviar una respuesta al cliente
-        res.status(201).json(newMacrosSemanal);
-           
-        }else{
-            res.status(201).json(macrosSemanal);
+            // Guarda el nuevo documento en la base de datos
+            macrosSemanal = await newMacrosSemanal.save();
         }
+
+        // Envía una respuesta al cliente
+        res.status(200).json(macrosSemanal);
 
     } catch (err) {
         console.log(err);
