@@ -60,6 +60,10 @@ exports.actualizaObjetivo = async (req, res) => {
     carbohidratos, 
     grasas, 
     margen, 
+    caloriasaconsumirtmb,
+    gramosProteinas,
+    gramosCarbohidratos,
+    gramosGrasas,
   } = req.body;
 
   try{
@@ -81,6 +85,10 @@ exports.actualizaObjetivo = async (req, res) => {
      objetivo.carbohidratos = carbohidratos;
      objetivo.grasas = grasas;
      objetivo.margen = margen;
+     objetivo.caloriasaconsumirtmb = caloriasaconsumirtmb,
+     objetivo.gramosProteinas = gramosProteinas,
+     objetivo.gramosCarbohidratos = gramosCarbohidratos,
+     objetivo.gramosGrasas = gramosGrasas,
 
      
     // Guardar el objetivo actualizado en la base de datos
