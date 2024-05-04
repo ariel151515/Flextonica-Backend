@@ -40,7 +40,11 @@ const objetivoSchema = new Schema({
     margen: {
         type: String,
         unique: false,
-    }
+    },
+    caloriasaconsumirtmb: {
+        type: String,
+        unique: false,
+    },
 }, {
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
