@@ -27,7 +27,11 @@ exports.creaObjetivo = async (req, res) => {
                 carbohidratos: '25', // Asegúrate de obtener este valor si es necesario
                 grasas: '50', // Asegúrate de obtener este valor si es necesario
                 margen: '5', // Asegúrate de obtener este valor si es necesario
-                caloriasaconsumirtmb: ''
+                
+                caloriasaconsumirtmb: '1000',
+                gramosProteinas: '100',
+                gramosCarbohidratos: '100',
+                gramosGrasas: '100',
             });
             
             const saveObjetivo = await newObjetivo.save();

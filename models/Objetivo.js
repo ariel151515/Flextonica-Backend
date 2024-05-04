@@ -45,6 +45,18 @@ const objetivoSchema = new Schema({
         type: String,
         unique: false,
     },
+    gramosProteinas: {
+        type: String,
+        unique: false,
+    },
+    gramosCarbohidratos: {
+        type: String,
+        unique: false,
+    },
+    gramosGrasas: {
+        type: String,
+        unique: false,
+    },
 }, {
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
