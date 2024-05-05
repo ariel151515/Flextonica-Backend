@@ -7,7 +7,7 @@ exports.macrosSemanal = async (req, res) => {
 
     try {
         // Verificar si ya existe un documento macrosSemanal
-        const macrosSemanal = await MacrosSemanal.findOne({ uid });
+        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:inicioSemana, fechaFin:finSemana});
 
         if (macrosSemanal) {
             console.log('Ya existe un macrosSemanal para este usuario');
@@ -72,6 +72,8 @@ exports.getMacrosSemanal = async (req, res) => {
         res.status(500).json({ message: 'Error al obtener o crear macrossemanal' });
     }
 }
+
+
 
 // Si no lo encuentra crea un documento de macrsSemana
 exports.geAndCreatetMacrosSemanal = async (req, res) => {
