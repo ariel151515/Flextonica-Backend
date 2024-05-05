@@ -28,10 +28,10 @@ exports.creaObjetivo = async (req, res) => {
                 grasas: '50', // Asegúrate de obtener este valor si es necesario
                 margen: '5', // Asegúrate de obtener este valor si es necesario
                 
-                caloriasaconsumirtmb: '1000',
-                gramosProteinas: '100',
+                caloriasaconsumir: '1000',
+                gramosProteinas: '50',
                 gramosCarbohidratos: '100',
-                gramosGrasas: '100',
+                gramosGrasas: '50',
             });
             
             const saveObjetivo = await newObjetivo.save();
@@ -60,7 +60,7 @@ exports.actualizaObjetivo = async (req, res) => {
     carbohidratos, 
     grasas, 
     margen, 
-    caloriasaconsumirtmb,
+    caloriasaconsumir,
     gramosProteinas,
     gramosCarbohidratos,
     gramosGrasas,
@@ -85,7 +85,7 @@ exports.actualizaObjetivo = async (req, res) => {
      objetivo.carbohidratos = carbohidratos;
      objetivo.grasas = grasas;
      objetivo.margen = margen;
-     objetivo.caloriasaconsumirtmb = caloriasaconsumirtmb,
+     objetivo.caloriasaconsumir = caloriasaconsumir,
      objetivo.gramosProteinas = gramosProteinas,
      objetivo.gramosCarbohidratos = gramosCarbohidratos,
      objetivo.gramosGrasas = gramosGrasas,
