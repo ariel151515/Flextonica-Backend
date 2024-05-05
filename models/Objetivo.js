@@ -41,7 +41,7 @@ const objetivoSchema = new Schema({
         type: String,
         unique: false,
     },
-    caloriasaconsumirtmb: {
+    caloriasaconsumir: {
         type: String,
         unique: false,
     },
