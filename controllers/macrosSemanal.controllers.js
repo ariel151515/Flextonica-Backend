@@ -60,32 +60,8 @@ exports.getMacrosSemanal = async (req, res) => {
         let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
 
         if (!macrosSemanal) {
-            // Si no se encuentra, crea un nuevo documento de macrosSemanal
-            const newMacrosSemanal = new MacrosSemanal({
-                uid,
-                objetivos: {
-                    objetivo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    totales: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    restantes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }
-                },
-                semana: {
-                    lunes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    martes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    miercoles: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    jueves: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    viernes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    sabado: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
-                    domingo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }
-                },
-                nota: {
-                    contenido: '0'
-                },
-                fechaInicio: inicioSemana,
-                fechaFin: finSemana
-            });
-
-            // Guarda el nuevo documento en la base de datos
-            macrosSemanal = await newMacrosSemanal.save();
+            console.log('El documento MacrosSemanal no existe');
+            res.status(500).json({ message: 'El documento MacrosSemanal no existe' });
         }
 
         // Envía una respuesta al cliente
@@ -96,7 +72,6 @@ exports.getMacrosSemanal = async (req, res) => {
         res.status(500).json({ message: 'Error al obtener o crear macrossemanal' });
     }
 }
-
 
 // Si no lo encuentra crea un documento de macrsSemana
 exports.geAndCreatetMacrosSemanal = async (req, res) => {
