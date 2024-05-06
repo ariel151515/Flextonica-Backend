@@ -42,7 +42,7 @@ exports.macrosSemanal = async (req, res) => {
         await newMacrosSemanal.save();
 
         // Enviar una respuesta al cliente
-        res.status(201).json({ message: 'MacrosSemana creado correctamente' });
+        return res.status(400).json({ macrosSemanal });
 
     } catch (err) {
         console.log('Error al crear macrosSemana', err);
