@@ -59,8 +59,8 @@ exports.getMacrosSemanal = async (req, res) => {
     const { uid, inicioSemana, finSemana } = req.params;
 
     try {
-        // Verificar si ya existe un documento macrosSemanal
-        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin:finSemana});
+        // Busca el documento MacrosSemanal en la base de datos
+        let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
 
         if (!macrosSemanal) {
             // Si no se encuentra, crea un nuevo documento de macrosSemanal
@@ -89,14 +89,13 @@ exports.getMacrosSemanal = async (req, res) => {
 
             // Guarda el nuevo documento en la base de datos
             macrosSemanal = await newMacrosSemanal.save();
-            
         }
 
-        // Enviar una respuesta al cliente
-        res.status(201).json(macrosSemanal);
+        // Envía una respuesta al cliente
+        res.status(200).json(macrosSemanal);
 
     } catch (err) {
-        console.log('Error al crear macrosSemana', err);
+        console.log(err);
         res.status(500).json({ message: 'Error al crear macrosSemana' });
     }
 }
