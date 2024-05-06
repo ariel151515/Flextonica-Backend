@@ -55,6 +55,7 @@ exports.macrosSemanal = async (req, res) => {
 
 
 // Trae por uid y por fechas un documento de macrsSemana
+// Trae por uid y por fechas un documento de macrsSemana
 exports.getMacrosSemanal = async (req, res) => {
     const { uid, inicioSemana, finSemana } = req.params;
 
@@ -99,7 +100,6 @@ exports.getMacrosSemanal = async (req, res) => {
         res.status(500).json({ message: 'Error al crear macrosSemana' });
     }
 }
-
 
 
 
