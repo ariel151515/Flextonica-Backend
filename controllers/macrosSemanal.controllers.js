@@ -88,9 +88,9 @@ exports.getMacrosSemanal = async (req, res) => {
             });
 
             // Guarda el nuevo documento en la base de datos
-            macrosSemanal = await newMacrosSemanal.save();
-            
-            res.status(201).json(macrosSemanal);
+            newMacrosSemanal = await newMacrosSemanal.save();
+
+            res.status(201).json(newMacrosSemanal);
         }
 
         // Enviar una respuesta al cliente
