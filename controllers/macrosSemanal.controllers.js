@@ -10,8 +10,8 @@ exports.macrosSemanal = async (req, res) => {
         const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:inicioSemana, fechaFin:finSemana});
 
         if (macrosSemanal) {
-            console.log('Ya existe un macrosSemanal para este usuario', macrosSemanal);
-            return res.status(400).json({ macrosSemanal });
+            console.log('Ya existe un macrosSemanal para este usuario');
+            return res.status(400).json({ message: 'Ya existe un objeto MacrosSemanal para este usuario' });
         }
 
         // Crear un nuevo documento de macrosSemanal
@@ -42,7 +42,7 @@ exports.macrosSemanal = async (req, res) => {
         await newMacrosSemanal.save();
 
         // Enviar una respuesta al cliente
-        return res.status(400).json({ macrosSemanal });
+        res.status(201).json({ message: 'MacrosSemana creado correctamente' });
 
     } catch (err) {
         console.log('Error al crear macrosSemana', err);
