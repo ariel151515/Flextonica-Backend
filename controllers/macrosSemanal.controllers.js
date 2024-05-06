@@ -63,8 +63,34 @@ exports.getMacrosSemanal = async (req, res) => {
         const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin:finSemana});
 
         if (!macrosSemanal) {
-            console.log('No existe  un macrosSemanal para este usuario');
-            return res.status(400).json({ message: 'No existe un objeto MacrosSemanal para este usuario' });
+            // Si no se encuentra, crea un nuevo documento de macrosSemanal
+            const newMacrosSemanal = new MacrosSemanal({
+                uid,
+                objetivos: {
+                    objetivo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    totales: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    restantes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }
+                },
+                semana: {
+                    lunes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    martes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    miercoles: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    jueves: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    viernes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    sabado: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
+                    domingo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }
+                },
+                nota: {
+                    contenido: '0'
+                },
+                fechaInicio: inicioSemana,
+                fechaFin: finSemana
+            });
+
+            // Guarda el nuevo documento en la base de datos
+            macrosSemanal = await newMacrosSemanal.save();
+            
+            res.status(201).json(macrosSemanal);
         }
 
         // Enviar una respuesta al cliente
