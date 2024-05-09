@@ -69,15 +69,11 @@ exports.getMacrosSemanal = async (req, res) => {
     try {
         let macrosSemanal;
 
-        // Verificar si el UID es válido antes de buscar o crear el documento
-        if (uid !== "undefined" && uid !== null) {
-            macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
-        }
 
         if (!macrosSemanal) {
             // Si no se encuentra, crea un nuevo documento de macrosSemanal
             const newMacrosSemanal = new MacrosSemanal({
-                uid: uid !== "undefined" ? uid : null,
+                uid,
                 objetivos: {
                     objetivo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
                     totales: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
