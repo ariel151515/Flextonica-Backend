@@ -55,6 +55,12 @@ exports.creaObjetivo = async (req, res) => {
 // Actualiza el objetovo
 exports.actualizaObjetivo = async (req, res) => {
   const { uid } = req.params;
+
+    // Verificar si se proporciona un UID
+     if (!uid) {
+      return res.status(400).json({ message: 'Se requiere un UID para crear un objetivo' });
+   }
+
   const {
     edad,
     pesoInicial,
@@ -113,6 +119,11 @@ exports.actualizaObjetivo = async (req, res) => {
 // Trae el objetivo por usuario
 exports.traeObjetivoPorUsuario = async (req, res) => {
   const { uid } = req.params;
+
+  // Verificar si se proporciona un UID
+  if (!uid) {
+      return res.status(400).json({ message: 'Se requiere un UID para crear un objetivo' });
+   }
   
   try {
     let objetivo = await Objetivo.findOne({ uid });
