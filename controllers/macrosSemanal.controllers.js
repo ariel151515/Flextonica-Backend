@@ -6,7 +6,7 @@ exports.macrosSemanal = async (req, res) => {
     const { inicioSemana, finSemana } = req.body;
 
     // Verificar si se proporciona un UID
-    if (!uid || uid !== "undefined" || uid !== null) {
+    if (!uid) {
         return res.status(400).json({ message: 'Se requiere un UID para crear un objetivo' });
      }
 
@@ -62,7 +62,7 @@ exports.getMacrosSemanal = async (req, res) => {
     const { uid, inicioSemana, finSemana } = req.params;
 
     // Verificar si se proporciona un UID válido
-    if (!uid || uid !== "undefined" || uid !== null) {
+    if (!uid) {
         return res.status(400).json({ message: 'Se requiere un UID para buscar los macros semanales' });
     }
 
@@ -70,7 +70,7 @@ exports.getMacrosSemanal = async (req, res) => {
         let macrosSemanal;
 
         // Verificar si el UID es válido antes de buscar o crear el documento
-        if (uid !== "undefined" || uid !== null) {
+        if (uid !== "undefined" && uid !== null) {
             macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
         }
 
