@@ -70,7 +70,7 @@ exports.getMacrosSemanal = async (req, res) => {
         let macrosSemanal;
 
         // Verificar si el UID es válido antes de buscar o crear el documento
-        if (uid !== "undefined") {
+        if (uid !== "undefined" || uid !== null) {
             macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
         }
 
