@@ -67,10 +67,12 @@ exports.getMacrosSemanal = async (req, res) => {
     }
 
     try {
-        let macrosSemanal;
 
+        // Verificar si ya existe un documento macrosSemanal
+        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:inicioSemana, fechaFin:finSemana});
 
         if (!macrosSemanal) {
+
             // Si no se encuentra, crea un nuevo documento de macrosSemanal
             const newMacrosSemanal = new MacrosSemanal({
                 uid,
