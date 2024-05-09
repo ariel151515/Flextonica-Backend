@@ -13,4 +13,7 @@ router.put('/actualizaObjetivo/:uid', ctrl.actualizaObjetivo);
 // Trae el objetivo por usuario
 router.get('/traeObjetivoPorUsuario/:uid', ctrl.traeObjetivoPorUsuario);
 
+// Aplica objetivos a semana seleccionada
+router.post('/apliobjsemasel', ctrl.aplicaObjetivosASemanaSeleccionada);
+
 module.exports = router;

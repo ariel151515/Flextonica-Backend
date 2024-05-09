@@ -4,6 +4,11 @@ const Objetivo = require('../models/Objetivo');
 exports.creaObjetivo = async (req, res) => {
     const { uid } = req.params;
 
+     // Verificar si se proporciona un UID
+     if (!uid) {
+      return res.status(400).json({ message: 'Se requiere un UID para crear un objetivo' });
+   }
+
     try{
          // Verificar si ya existe un objetivo con el mismo UID
          const objetivoExistente = await Objetivo.findOne({ uid });
@@ -125,4 +130,7 @@ exports.traeObjetivoPorUsuario = async (req, res) => {
     res.status(500).json({ message: 'Error al obtener el objetivo' });
   }
 }
+
+// Aplica objetivos a semana seleccionada
+exports.aplicaObjetivosASemanaSeleccionada = async (req, res) => {}
 
