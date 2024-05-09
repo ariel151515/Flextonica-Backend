@@ -61,19 +61,23 @@ exports.macrosSemanal = async (req, res) => {
 exports.getMacrosSemanal = async (req, res) => {
     const { uid, inicioSemana, finSemana } = req.params;
 
-    // Verificar si se proporciona un UID
+    // Verificar si se proporciona un UID válido
     if (!uid) {
-        return res.status(400).json({ message: 'Se requiere un UID para crear un objetivo' });
-     }
+        return res.status(400).json({ message: 'Se requiere un UID para buscar los macros semanales' });
+    }
 
     try {
-        // Busca el documento MacrosSemanal en la base de datos
-        let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
+        let macrosSemanal;
+
+        // Verificar si el UID es válido antes de buscar o crear el documento
+        if (uid !== "undefined") {
+            macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
+        }
 
         if (!macrosSemanal) {
             // Si no se encuentra, crea un nuevo documento de macrosSemanal
             const newMacrosSemanal = new MacrosSemanal({
-                uid,
+                uid: uid !== "undefined" ? uid : null,
                 objetivos: {
                     objetivo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
                     totales: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' },
@@ -104,9 +108,10 @@ exports.getMacrosSemanal = async (req, res) => {
 
     } catch (err) {
         console.log(err);
-        res.status(500).json({ message: 'Error al crear macrosSemana' });
+        res.status(500).json({ message: 'Error al buscar o crear los macros semanales' });
     }
 }
+
 
 
 
