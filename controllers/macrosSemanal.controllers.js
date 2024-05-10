@@ -62,8 +62,8 @@ exports.getMacrosSemanal = async (req, res) => {
     const { uid, inicioSemana, finSemana } = req.params;
 
     // Verificar si se proporciona un UID válido
-    if (!uid) {
-        return res.status(400).json({ message: 'Se requiere un UID para buscar los macros semanales' });
+    if (!uid || inicioSemana === finSemana) {
+        return res.status(400).json({ message: 'Se requiere un UID para buscar los macros semanales, o inicioSemana y finSemana son iguales' });
     }
 
     try {
