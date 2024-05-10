@@ -14,6 +14,7 @@ router.put('/actualizaObjetivo/:uid', ctrl.actualizaObjetivo);
 router.get('/traeObjetivoPorUsuario/:uid', ctrl.traeObjetivoPorUsuario);
 
 // Aplica objetivos a semana seleccionada
-router.post('/apliobjsemasel', ctrl.aplicaObjetivosASemanaSeleccionada);
+//router.post('/apliobjsemasel', ctrl.aplicaObjetivosASemanaSeleccionada);
+
 
 module.exports = router;

@@ -142,6 +142,3 @@ exports.traeObjetivoPorUsuario = async (req, res) => {
   }
 }
 
-// Aplica objetivos a semana seleccionada
-exports.aplicaObjetivosASemanaSeleccionada = async (req, res) => {}
-

@@ -115,7 +115,6 @@ exports.getMacrosSemanal = async (req, res) => {
 exports.getMacrosSemanalUno = async (req, res) => {
     const { uid, inicioSemana, finSemana } = req.params;
     try {
-
         // Verificar si ya existe un documento macrosSemanal
         const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:inicioSemana, fechaFin:finSemana});
        
@@ -127,3 +126,38 @@ exports.getMacrosSemanalUno = async (req, res) => {
         res.status(500).json({ message: 'Error al buscar o crear los macros semanales' });
     }
 }
+
+
+// Aplica objetivos a semana seleccionada
+exports.putDatosObjetivoBoxSemanal = async (req, res) => {
+    const { uid, inicioSemana, finSemana,} = req.params;
+    const { kcal, carbohidratos, grasas, proteinas } = req.body;
+
+  try{
+    // Buscar el objetivo por uid
+    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:inicioSemana, fechaFin:finSemana });
+
+     // Si no se encuentra el objetivo, devolver un mensaje de error
+     if (!macrosSemanal) {
+        return res.status(404).json({ message: 'MacrosSemanal no encontrado' });
+    }
+
+     // Actualizar los campos del objetivo con los datos proporcionados
+     macrosSemanal.objetivos.objetivo.kcal = kcal;
+     macrosSemanal.objetivos.objetivo.Carbohidratos = carbohidratos;
+     macrosSemanal.objetivos.objetivo.Grasas = grasas;
+     macrosSemanal.objetivos.objetivo.Proteinas = proteinas;
+     
+    // Guardar el objetivo actualizado en la base de datos
+    await macrosSemanal.save();
+
+    // Devolver una respuesta con los datos actualizados
+    res.status(200).json({ message: 'macrosSemanal actualizado correctamente', macrosSemanal });
+  
+  }catch(err) {
+    // console.error('Error al actualizar el objetivo:', err);
+    res.status(500).json({ message: 'Error al actualizar el macrosSemanal' });
+  }
+
+}
+
