@@ -131,7 +131,15 @@ exports.getMacrosSemanalUno = async (req, res) => {
 // Aplica objetivos a semana seleccionada
 exports.putDatosObjetivoBoxSemanal = async (req, res) => {
     const { uid, inicioSemana, finSemana,} = req.params;
-    const { kcal, carbohidratos, grasas, proteinas } = req.body;
+    const { 
+        kcal, 
+        gramosCarbohidratos, 
+        gramosGrasas, 
+        gramosProteinas,
+        Proteinas, // %
+        Carbohidratos, // %
+        Grasas // %
+    } = req.body;
 
   try{
     // Buscar el objetivo por uid
@@ -144,20 +152,19 @@ exports.putDatosObjetivoBoxSemanal = async (req, res) => {
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.objetivos.objetivo.kcal = kcal;
-     macrosSemanal.objetivos.objetivo.gramosCarbohidratos = carbohidratos;
-     macrosSemanal.objetivos.objetivo.gramosGrasas = grasas;
-     macrosSemanal.objetivos.objetivo.gramosProteinas = proteinas;
+     macrosSemanal.objetivos.objetivo.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.objetivos.objetivo.gramosGrasas = gramosGrasas;
+     macrosSemanal.objetivos.objetivo.gramosProteinas = gramosProteinas;
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.semana.lunes.kcal = kcal;
-     macrosSemanal.semana.lunes.gramosCarbohidratos = carbohidratos;
-     macrosSemanal.semana.lunes.gramosGrasas = grasas;
-     macrosSemanal.semana.lunes.gramosProteinas = proteinas;
+     macrosSemanal.semana.lunes.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.semana.lunes.gramosGrasas = gramosGrasas;
+     macrosSemanal.semana.lunes.gramosProteinas = gramosProteinas;
 
-     macrosSemanal.semana.lunes.porcentajekcal = kcal;
-     macrosSemanal.semana.lunes.porcentajeCarbohidratos = carbohidratos;
-     macrosSemanal.semana.lunes.porcentajeGrasas = grasas;
-     macrosSemanal.semana.lunes.porcentajeProteinas = proteinas;
+     macrosSemanal.semana.lunes.porcentajeCarbohidratos = Carbohidratos;
+     macrosSemanal.semana.lunes.porcentajeGrasas = Grasas;
+     macrosSemanal.semana.lunes.porcentajeProteinas = Proteinas;
 
      
 
