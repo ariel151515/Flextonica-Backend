@@ -10,9 +10,9 @@ const macrosSemanalSchema = new Schema({
     },
     // Objetivos de macronutrientes
     objetivos: {
-        objetivo: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Objetivo diario de macronutrientes
-        totales: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Totales planeados para la semana
-        restantes: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String } // Cantidad restante para alcanzar los objetivos
+        objetivo: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String }, // Objetivo diario de macronutrientes
+        totales: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String }, // Totales planeados para la semana
+        restantes: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String } // Cantidad restante para alcanzar los objetivos
     },
     // Datos de la semana para cada día
     semana: {
