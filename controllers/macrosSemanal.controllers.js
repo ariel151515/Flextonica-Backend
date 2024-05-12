@@ -23,18 +23,18 @@ exports.macrosSemanal = async (req, res) => {
         const newMacrosSemanal = new MacrosSemanal({ 
             uid,
             objetivos: {
-                objetivo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Objetivo diario de macronutrientes
-                totales: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Totales planeados para la semana
-                restantes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' } // Cantidad restante para alcanzar los objetivos
+                objetivo: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Objetivo diario de macronutrientes
+                totales: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Totales planeados para la semana
+                restantes: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' } // Cantidad restante para alcanzar los objetivos
             },
             semana: {
-                lunes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Datos para el lunes
-                martes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Datos para el martes
-                miercoles: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Datos para el miércoles
-                jueves: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Datos para el jueves
-                viernes: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Datos para el viernes
-                sabado: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' }, // Datos para el sábado
-                domingo: { kcal: '0', Carbohidratos: '0', Grasas: '0', Proteinas: '0' } // Datos para el domingo
+                lunes: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el lunes
+                martes: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el martes
+                miercoles: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el miércoles
+                jueves: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el jueves
+                viernes: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el viernes
+                sabado: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el sábado
+                domingo: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' } // Datos para el domingo
             },
             nota: {
                 contenido: '0'
