@@ -167,28 +167,28 @@ exports.putDatosObjetivoBoxSemanal = async (req, res) => {
      macrosSemanal.semana.miercoles.Proteinas = proteinas;
 
      // Actualizar los campos del objetivo con los datos proporcionados
-     macrosSemanal.semana.jueves.kcal = kcal;
-     macrosSemanal.semana.jueves.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.jueves.Grasas = grasas;
-     macrosSemanal.semana.jueves.Proteinas = proteinas;
+     // macrosSemanal.semana.jueves.kcal = kcal;
+     // macrosSemanal.semana.jueves.Carbohidratos = carbohidratos;
+     // macrosSemanal.semana.jueves.Grasas = grasas;
+     // macrosSemanal.semana.jueves.Proteinas = proteinas;
 
      // Actualizar los campos del objetivo con los datos proporcionados
-     macrosSemanal.semana.viernes.kcal = kcal;
-     macrosSemanal.semana.viernes.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.viernes.Grasas = grasas;
-     macrosSemanal.semana.viernes.Proteinas = proteinas;
+     // macrosSemanal.semana.viernes.kcal = kcal;
+     // macrosSemanal.semana.viernes.Carbohidratos = carbohidratos;
+     // macrosSemanal.semana.viernes.Grasas = grasas;
+     // macrosSemanal.semana.viernes.Proteinas = proteinas;
 
      // Actualizar los campos del objetivo con los datos proporcionados
-     macrosSemanal.semana.sabado.kcal = kcal;
-     macrosSemanal.semana.sabado.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.sabado.Grasas = grasas;
-     macrosSemanal.semana.sabado.Proteinas = proteinas;
+     // macrosSemanal.semana.sabado.kcal = kcal;
+     // macrosSemanal.semana.sabado.Carbohidratos = carbohidratos;
+     // macrosSemanal.semana.sabado.Grasas = grasas;
+     // macrosSemanal.semana.sabado.Proteinas = proteinas;
 
      // Actualizar los campos del objetivo con los datos proporcionados
-     macrosSemanal.semana.domingo.kcal = kcal;
-     macrosSemanal.semana.domingo.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.domingo.Grasas = grasas;
-     macrosSemanal.semana.domingo.Proteinas = proteinas;
+     // macrosSemanal.semana.domingo.kcal = kcal;
+     // macrosSemanal.semana.domingo.Carbohidratos = carbohidratos;
+     // macrosSemanal.semana.domingo.Grasas = grasas;
+     // macrosSemanal.semana.domingo.Proteinas = proteinas;
      
     // Guardar el objetivo actualizado en la base de datos
     await macrosSemanal.save();
