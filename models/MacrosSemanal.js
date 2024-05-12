@@ -16,13 +16,13 @@ const macrosSemanalSchema = new Schema({
     },
     // Datos de la semana para cada día
     semana: {
-        lunes: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Datos para el lunes
-        martes: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Datos para el martes
-        miercoles: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Datos para el miércoles
-        jueves: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Datos para el jueves
-        viernes: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Datos para el viernes
-        sabado: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String }, // Datos para el sábado
-        domingo: { kcal: String, Carbohidratos: String, Grasas: String, Proteinas: String } // Datos para el domingo
+       lunes: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String}, // Datos para el lunes
+       martes: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
+       miercoles: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
+       jueves: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
+       viernes: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
+       sabado: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
+       domingo: { kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String}
     },
     nota: {
         tipo: String,

@@ -144,15 +144,22 @@ exports.putDatosObjetivoBoxSemanal = async (req, res) => {
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.objetivos.objetivo.kcal = kcal;
-     macrosSemanal.objetivos.objetivo.Carbohidratos = carbohidratos;
-     macrosSemanal.objetivos.objetivo.Grasas = grasas;
-     macrosSemanal.objetivos.objetivo.Proteinas = proteinas;
+     macrosSemanal.objetivos.objetivo.gramosCarbohidratos = carbohidratos;
+     macrosSemanal.objetivos.objetivo.gramosGrasas = grasas;
+     macrosSemanal.objetivos.objetivo.gramosProteinas = proteinas;
 
      // Actualizar los campos del objetivo con los datos proporcionados
-     // macrosSemanal.semana.lunes.kcal = kcal;
-     // macrosSemanal.semana.lunes.Carbohidratos = carbohidratos;
-     // macrosSemanal.semana.lunes.Grasas = grasas;
-     // macrosSemanal.semana.lunes.Proteinas = proteinas;
+     macrosSemanal.semana.lunes.kcal = kcal;
+     macrosSemanal.semana.lunes.gramosCarbohidratos = carbohidratos;
+     macrosSemanal.semana.lunes.gramosGrasas = grasas;
+     macrosSemanal.semana.lunes.gramosProteinas = proteinas;
+
+     macrosSemanal.semana.lunes.porcentajekcal = kcal;
+     macrosSemanal.semana.lunes.porcentajeCarbohidratos = carbohidratos;
+     macrosSemanal.semana.lunes.porcentajeGrasas = grasas;
+     macrosSemanal.semana.lunes.porcentajeProteinas = proteinas;
+
+     
 
      // Actualizar los campos del objetivo con los datos proporcionados
      // macrosSemanal.semana.martes.kcal = kcal;
