@@ -217,3 +217,123 @@ exports.putDatosObjetivoBoxSemanal = async (req, res) => {
 
 }
 
+
+// Actualiza los datos de los dias de la semana (macros en gramos y %, tambien calorias)
+exports.actualizaDatosEnPorcentajesEnElDiaDeLaSemana = async (req, res) => {
+    const { uid, fechaInicio, fechaFin } = req.params;
+    const { 
+        kcal,
+        gramosCarbohidratos,
+        gramosGrasas,
+        gramosProteinas,
+        porcentajeCarbohidratos,
+        porcentajeGrasas,
+        porcentajeProteinas,
+        dia
+    } = req.body;
+
+    try{
+        // Buscar el objetivo por uid
+        let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:fechaInicio, fechaFin:fechaFin });
+    
+         // Si no se encuentra el objetivo, devolver un mensaje de error
+         if (!macrosSemanal) {
+            return res.status(404).json({ message: 'MacrosSemanal no encontrado' });
+        }
+    
+
+        if(dia === 'Lunes'){
+            // Actualizar los campos del objetivo con los datos proporcionados
+            macrosSemanal.semana.lunes.kcal = kcal;
+            macrosSemanal.semana.lunes.gramosCarbohidratos = gramosCarbohidratos;
+            macrosSemanal.semana.lunes.gramosGrasas = gramosGrasas;
+            macrosSemanal.semana.lunes.gramosProteinas = gramosProteinas;
+        
+            macrosSemanal.semana.lunes.porcentajeCarbohidratos =  porcentajeCarbohidratos;
+            macrosSemanal.semana.lunes.porcentajeGrasas = porcentajeGrasas;
+            macrosSemanal.semana.lunes.porcentajeProteinas = porcentajeProteinas;
+        }
+
+        if(dia === 'Martes'){
+            // Actualizar los campos del objetivo con los datos proporcionados
+            macrosSemanal.semana.martes.kcal = kcal;
+            macrosSemanal.semana.martes.gramosCarbohidratos = gramosCarbohidratos;
+            macrosSemanal.semana.martes.gramosGrasas = gramosGrasas;
+            macrosSemanal.semana.martes.gramosProteinas = gramosProteinas;
+        
+            macrosSemanal.semana.martes.porcentajeCarbohidratos =  porcentajeCarbohidratos;
+            macrosSemanal.semana.martes.porcentajeGrasas = porcentajeGrasas;
+            macrosSemanal.semana.martes.porcentajeProteinas = porcentajeProteinas;
+        }
+
+        if(dia === 'Miercoles'){
+            // Actualizar los campos del objetivo con los datos proporcionados
+            macrosSemanal.semana.miercoles.kcal = kcal;
+            macrosSemanal.semana.miercoles.gramosCarbohidratos = gramosCarbohidratos;
+            macrosSemanal.semana.miercoles.gramosGrasas = gramosGrasas;
+            macrosSemanal.semana.miercoles.gramosProteinas = gramosProteinas;
+        
+            macrosSemanal.semana.miercoles.porcentajeCarbohidratos =  porcentajeCarbohidratos;
+            macrosSemanal.semana.miercoles.porcentajeGrasas = porcentajeGrasas;
+            macrosSemanal.semana.miercoles.porcentajeProteinas = porcentajeProteinas;
+        }
+
+        if(dia === 'Jueves'){
+            // Actualizar los campos del objetivo con los datos proporcionados
+            macrosSemanal.semana.jueves.kcal = kcal;
+            macrosSemanal.semana.jueves.gramosCarbohidratos = gramosCarbohidratos;
+            macrosSemanal.semana.jueves.gramosGrasas = gramosGrasas;
+            macrosSemanal.semana.jueves.gramosProteinas = gramosProteinas;
+        
+            macrosSemanal.semana.jueves.porcentajeCarbohidratos =  porcentajeCarbohidratos;
+            macrosSemanal.semana.jueves.porcentajeGrasas = porcentajeGrasas;
+            macrosSemanal.semana.jueves.porcentajeProteinas = porcentajeProteinas;
+        }
+
+        if(dia === 'Viernes'){
+            // Actualizar los campos del objetivo con los datos proporcionados
+            macrosSemanal.semana.viernes.kcal = kcal;
+            macrosSemanal.semana.viernes.gramosCarbohidratos = gramosCarbohidratos;
+            macrosSemanal.semana.viernes.gramosGrasas = gramosGrasas;
+            macrosSemanal.semana.viernes.gramosProteinas = gramosProteinas;
+        
+            macrosSemanal.semana.viernes.porcentajeCarbohidratos =  porcentajeCarbohidratos;
+            macrosSemanal.semana.viernes.porcentajeGrasas = porcentajeGrasas;
+            macrosSemanal.semana.viernes.porcentajeProteinas = porcentajeProteinas;
+        }
+
+        if(dia === 'Sabado'){
+            // Actualizar los campos del objetivo con los datos proporcionados
+            macrosSemanal.semana.sabado.kcal = kcal;
+            macrosSemanal.semana.sabado.gramosCarbohidratos = gramosCarbohidratos;
+            macrosSemanal.semana.sabado.gramosGrasas = gramosGrasas;
+            macrosSemanal.semana.sabado.gramosProteinas = gramosProteinas;
+        
+            macrosSemanal.semana.sabado.porcentajeCarbohidratos =  porcentajeCarbohidratos;
+            macrosSemanal.semana.sabado.porcentajeGrasas = porcentajeGrasas;
+            macrosSemanal.semana.sabado.porcentajeProteinas = porcentajeProteinas;
+        }
+
+        if(dia === 'Domingo'){
+            // Actualizar los campos del objetivo con los datos proporcionados
+            macrosSemanal.semana.domingo.kcal = kcal;
+            macrosSemanal.semana.domingo.gramosCarbohidratos = gramosCarbohidratos;
+            macrosSemanal.semana.domingo.gramosGrasas = gramosGrasas;
+            macrosSemanal.semana.domingo.gramosProteinas = gramosProteinas;
+        
+            macrosSemanal.semana.domingo.porcentajeCarbohidratos =  porcentajeCarbohidratos;
+            macrosSemanal.semana.domingo.porcentajeGrasas = porcentajeGrasas;
+            macrosSemanal.semana.domingo.porcentajeProteinas = porcentajeProteinas;
+        }
+
+        // Guardar el objetivo actualizado en la base de datos
+        await macrosSemanal.save();
+    
+        // Devolver una respuesta con los datos actualizados
+        res.status(200).json({ message: 'macrosSemanal actualizado correctamente', macrosSemanal });
+      
+      }catch(err) {
+        // console.error('Error al actualizar el objetivo:', err);
+        res.status(500).json({ message: 'Error al actualizar el macrosSemanal' });
+      }
+}
