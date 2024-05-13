@@ -161,49 +161,71 @@ exports.putDatosObjetivoBoxSemanal = async (req, res) => {
      macrosSemanal.semana.lunes.gramosCarbohidratos = gramosCarbohidratos;
      macrosSemanal.semana.lunes.gramosGrasas = gramosGrasas;
      macrosSemanal.semana.lunes.gramosProteinas = gramosProteinas;
-
      macrosSemanal.semana.lunes.porcentajeCarbohidratos = Carbohidratos;
      macrosSemanal.semana.lunes.porcentajeGrasas = Grasas;
      macrosSemanal.semana.lunes.porcentajeProteinas = Proteinas;
 
-     
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.semana.martes.kcal = kcal;
-     macrosSemanal.semana.martes.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.martes.Grasas = grasas;
-     macrosSemanal.semana.martes.Proteinas = proteinas;
+     macrosSemanal.semana.martes.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.semana.martes.gramosGrasas = gramosGrasas;
+     macrosSemanal.semana.martes.gramosProteinas = gramosProteinas;
+     macrosSemanal.semana.martes.porcentajeCarbohidratos = Carbohidratos;
+     macrosSemanal.semana.martes.porcentajeGrasas = Grasas;
+     macrosSemanal.semana.martes.porcentajeProteinas = Proteinas;
+
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.semana.miercoles.kcal = kcal;
-     macrosSemanal.semana.miercoles.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.miercoles.Grasas = grasas;
-     macrosSemanal.semana.miercoles.Proteinas = proteinas;
+     macrosSemanal.semana.miercoles.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.semana.miercoles.gramosGrasas = gramosGrasas;
+     macrosSemanal.semana.miercoles.gramosProteinas = gramosProteinas;
+     macrosSemanal.semana.miercoles.porcentajeCarbohidratos = Carbohidratos;
+     macrosSemanal.semana.miercoles.porcentajeGrasas = Grasas;
+     macrosSemanal.semana.miercoles.porcentajeProteinas = Proteinas;
+
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.semana.jueves.kcal = kcal;
-     macrosSemanal.semana.jueves.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.jueves.Grasas = grasas;
-     macrosSemanal.semana.jueves.Proteinas = proteinas;
+     macrosSemanal.semana.jueves.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.semana.jueves.gramosGrasas = gramosGrasas;
+     macrosSemanal.semana.jueves.gramosProteinas = gramosProteinas;
+     macrosSemanal.semana.jueves.porcentajeCarbohidratos = Carbohidratos;
+     macrosSemanal.semana.jueves.porcentajeGrasas = Grasas;
+     macrosSemanal.semana.jueves.porcentajeProteinas = Proteinas;
+
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.semana.viernes.kcal = kcal;
-     macrosSemanal.semana.viernes.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.viernes.Grasas = grasas;
-     macrosSemanal.semana.viernes.Proteinas = proteinas;
+     macrosSemanal.semana.viernes.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.semana.viernes.gramosGrasas = gramosGrasas;
+     macrosSemanal.semana.viernes.gramosProteinas = gramosProteinas;
+     macrosSemanal.semana.viernes.porcentajeCarbohidratos = Carbohidratos;
+     macrosSemanal.semana.viernes.porcentajeGrasas = Grasas;
+     macrosSemanal.semana.viernes.porcentajeProteinas = Proteinas;
+
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.semana.sabado.kcal = kcal;
-     macrosSemanal.semana.sabado.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.sabado.Grasas = grasas;
-     macrosSemanal.semana.sabado.Proteinas = proteinas;
+     macrosSemanal.semana.sabado.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.semana.sabado.gramosGrasas = gramosGrasas;
+     macrosSemanal.semana.sabado.gramosProteinas = gramosProteinas;
+     macrosSemanal.semana.sabado.porcentajeCarbohidratos = Carbohidratos;
+     macrosSemanal.semana.sabado.porcentajeGrasas = Grasas;
+     macrosSemanal.semana.sabado.porcentajeProteinas = Proteinas;
+
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.semana.domingo.kcal = kcal;
-     macrosSemanal.semana.domingo.Carbohidratos = carbohidratos;
-     macrosSemanal.semana.domingo.Grasas = grasas;
-     macrosSemanal.semana.domingo.Proteinas = proteinas;
-     
+     macrosSemanal.semana.domingo.gramosCarbohidratos = gramosCarbohidratos;
+     macrosSemanal.semana.domingo.gramosGrasas = gramosGrasas;
+     macrosSemanal.semana.domingo.gramosProteinas = gramosProteinas;
+     macrosSemanal.semana.domingo.porcentajeCarbohidratos = Carbohidratos;
+     macrosSemanal.semana.domingo.porcentajeGrasas = Grasas;
+     macrosSemanal.semana.domingo.porcentajeProteinas = Proteinas;
+
+
     // Guardar el objetivo actualizado en la base de datos
     await macrosSemanal.save();
 
