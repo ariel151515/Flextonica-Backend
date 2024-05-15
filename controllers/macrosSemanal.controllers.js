@@ -362,10 +362,9 @@ exports.actualizaDatosEnPorcentajesEnElDiaDeLaSemana = async (req, res) => {
 
 
 
-
 // Actualiza nota semanal
 exports.putNotaSemanal = async (req, res) => {
-    const { uid, inicioSemana, finSemana,} = req.params;
+    const { uid, inicioSemana, finSemana} = req.params;
     const { nota } = req.body;
 
   try{
