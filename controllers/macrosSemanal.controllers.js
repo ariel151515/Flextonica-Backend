@@ -377,15 +377,16 @@ exports.putNotaSemanal = async (req, res) => {
         return res.status(404).json({ message: 'No se pudo actualizar la nota, MacrosSemanal no encontrado', macrosSemanal });
     }
 
+
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.nota.contenido = nota
    
-     
+
     // Guardar el objetivo actualizado en la base de datos
     await macrosSemanal.save();
 
     // Devolver una respuesta con los datos actualizados
-    res.status(200).json({ message: 'macrosSemanal actualizado correctamente'});
+    res.status(200).json({ message: 'macrosSemanal actualizado correctamente', macrosSemanal});
   
   }catch(err) {
     // console.error('Error al actualizar el objetivo:', err);
