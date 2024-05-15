@@ -19,8 +19,11 @@ router.get('/macrossemanaluno/:uid/:inicioSemana/:finSemana/', ctrl.getMacrosSem
 // Actualiza datos objetivos en box semanal
 router.put('/actualizarDatosObjetivoBoxSemanal/:uid/:inicioSemana/:finSemana/', ctrl.putDatosObjetivoBoxSemanal);
 
-
 // Actualiza los datos de los dias de la semana (macros en gramos y %, tambien calorias)
 router.put('/actualizaDatosEnPorcentajesEnElDiaDeLaSemana/:uid/:fechaInicio/:fechaFin/', ctrl.actualizaDatosEnPorcentajesEnElDiaDeLaSemana);
+
+// Actualiza nota semanal
+router.put('/putnotasemanal/:uid/:fechaInicio/:fechaFin/', ctrl.putNotaSemanal);
+
 
 module.exports = router;
