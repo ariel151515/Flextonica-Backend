@@ -379,9 +379,8 @@ exports.putNotaSemanal = async (req, res) => {
 
      // Actualizar los campos del objetivo con los datos proporcionados
      macrosSemanal.nota.contenido = nota
-     macrosSemanal.semana.domingo.kcal = nota
-
-    
+   
+     
     // Guardar el objetivo actualizado en la base de datos
     await macrosSemanal.save();
 
