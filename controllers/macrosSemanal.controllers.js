@@ -364,20 +364,21 @@ exports.actualizaDatosEnPorcentajesEnElDiaDeLaSemana = async (req, res) => {
 
 // Actualiza nota semanal
 exports.putNotaSemanal = async (req, res) => {
-    const { uid, inicioSemana, finSemana} = req.params;
+    const { uid, fechaInicio, fechaFin} = req.params;
     const { nota } = req.body;
 
   try{
     // Buscar el objetivo por uid
-    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:inicioSemana, fechaFin:finSemana });
+    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio, fechaFin });
 
      // Si no se encuentra el objetivo, devolver un mensaje de error
      if (!macrosSemanal) {
-        return res.status(404).json({ message: 'MacrosSemanal no encontrado' });
+        console.log(uid, inicioSemana, finSemana)
+        return res.status(404).json({ message: 'No se pudo actualizar la nota, MacrosSemanal no encontrado', macrosSemanal });
     }
 
      // Actualizar los campos del objetivo con los datos proporcionados
-     macrosSemanal.objetivos.nota = nota
+     macrosSemanal.nota.contenido = nota
 
     
     // Guardar el objetivo actualizado en la base de datos
