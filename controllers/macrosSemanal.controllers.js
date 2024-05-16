@@ -394,3 +394,40 @@ exports.putNotaSemanal = async (req, res) => {
   }
 
 }
+
+
+// Actualiza la fecha en el documento semanal
+exports.actualizafechaactualenlasemana = async (req, res) => {
+    const { uid, fechaInicio, fechaFin} = req.params;
+    const { fechasSemana } = req.body;
+
+  try{
+    // Buscar el objetivo por uid
+    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio, fechaFin });
+
+     // Si no se encuentra el objetivo, devolver un mensaje de error
+     if (!macrosSemanal) {
+
+        return res.status(404).json({ message: 'No se pudo actualizar la nota, MacrosSemanal no encontrado', macrosSemanal });
+    }
+
+
+    // ------------------------------------------
+     macrosSemanal.nota.contenido = fechaActual
+     
+
+    // ------------------------------------------
+
+
+    // Guardar el objetivo actualizado en la base de datos
+    await macrosSemanal.save();
+
+    // Devolver una respuesta con los datos actualizados
+    res.status(200).json({ message: 'macrosSemanal actualizado correctamente', macrosSemanal});
+  
+  }catch(err) {
+    // console.error('Error al actualizar el objetivo:', err);
+    res.status(500).json({ message: 'Error al actualizar el macrosSemanal' });
+  }
+
+}
