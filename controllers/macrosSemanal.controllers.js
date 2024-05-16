@@ -22,6 +22,7 @@ exports.macrosSemanal = async (req, res) => {
         // Crear un nuevo documento de macrosSemanal
         const newMacrosSemanal = new MacrosSemanal({ 
             uid,
+            fecha: new Date(),
             objetivos: {
                 objetivo: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Objetivo diario de macronutrientes
                 totales: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Totales planeados para la semana
@@ -76,6 +77,7 @@ exports.getMacrosSemanal = async (req, res) => {
             // Si no se encuentra, crea un nuevo documento de macrosSemanal
             const newMacrosSemanal = new MacrosSemanal({
                 uid,
+                fecha: new Date(),
                 objetivos: {
                     objetivo: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Objetivo diario de macronutrientes
                     totales: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Totales planeados para la semana
