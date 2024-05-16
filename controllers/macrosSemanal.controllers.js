@@ -396,38 +396,41 @@ exports.putNotaSemanal = async (req, res) => {
 }
 
 
-// Actualiza la fecha en el documento semanal
+const MacrosSemanal = require('../models/MacrosSemanal');
+
 exports.actualizafechaactualenlasemana = async (req, res) => {
-    const { uid, fechaInicio, fechaFin} = req.params;
+  try {
+    // Obtener los datos del cuerpo de la solicitud
+    const { uid, fechaInicio, fechaFin } = req.params;
     const { fechasSemana } = req.body;
 
-  try{
-    // Buscar el objetivo por uid
-    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio, fechaFin });
-
-     // Si no se encuentra el objetivo, devolver un mensaje de error
-     if (!macrosSemanal) {
-
-        return res.status(404).json({ message: 'No se pudo actualizar la nota, MacrosSemanal no encontrado', macrosSemanal });
+    // Validar los datos de entrada
+    if (!uid || !fechaInicio || !fechaFin || !fechasSemana) {
+      return res.status(400).json({ message: 'Faltan datos obligatorios en la solicitud' });
     }
 
+    // Buscar el documento de MacrosSemanal por uid, fechaInicio y fechaFin
+    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio, fechaFin });
 
-    // ------------------------------------------
-     macrosSemanal.nota.contenido = fechaActual
-     
+    // Verificar si se encontró el documento
+    if (!macrosSemanal) {
+      return res.status(404).json({ message: 'No se encontró el documento de MacrosSemanal' });
+    }
 
-    // ------------------------------------------
+    // Actualizar la fecha en el documento semanal
+    for (const dia in macrosSemanal.semana) {
+      if (fechasSemana.hasOwnProperty(dia)) {
+        macrosSemanal.semana[dia].fecha = fechasSemana[dia];
+      }
+    }
 
-
-    // Guardar el objetivo actualizado en la base de datos
+    // Guardar el documento actualizado en la base de datos
     await macrosSemanal.save();
 
     // Devolver una respuesta con los datos actualizados
-    res.status(200).json({ message: 'macrosSemanal actualizado correctamente', macrosSemanal});
-  
-  }catch(err) {
-    // console.error('Error al actualizar el objetivo:', err);
-    res.status(500).json({ message: 'Error al actualizar el macrosSemanal' });
+    res.status(200).json({ message: 'MacrosSemanal actualizado correctamente', macrosSemanal });
+  } catch (err) {
+    console.error('Error al actualizar el MacrosSemanal:', err);
+    res.status(500).json({ message: 'Error al actualizar el MacrosSemanal' });
   }
-
-}
+};
