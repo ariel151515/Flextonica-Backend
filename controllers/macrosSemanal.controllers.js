@@ -396,8 +396,6 @@ exports.putNotaSemanal = async (req, res) => {
 }
 
 
-const MacrosSemanal = require('../models/MacrosSemanal');
-
 exports.actualizafechaactualenlasemana = async (req, res) => {
   try {
     // Obtener los datos del cuerpo de la solicitud
