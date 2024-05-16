@@ -404,7 +404,7 @@ exports.actualizafechaactualenlasemana = async (req, res) => {
 
     // Validar los datos de entrada
     if (!uid || !fechaInicio || !fechaFin || !fechasSemana) {
-      return res.status(400).json({ message: 'Faltan datos obligatorios en la solicitud' });
+      return res.status(400).json({ message: 'Faltan datos obligatorios en la solicitud', uid, fechaInicio, fechaFin, fechasSemana });
     }
 
     // Buscar el documento de MacrosSemanal por uid, fechaInicio y fechaFin
