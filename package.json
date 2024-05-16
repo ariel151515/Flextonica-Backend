@@ -25,6 +25,7 @@
     "mongodb": "^2.0.14",
     "mongoose": "^8.2.3",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "normalize-node-version": "^14.0.0"
   }
 }

@@ -397,38 +397,41 @@ exports.putNotaSemanal = async (req, res) => {
 
 
 exports.actualizafechaactualenlasemana = async (req, res) => {
-  try {
-    // Obtener los datos del cuerpo de la solicitud
-    const { uid, fechaInicio, fechaFin } = req.params;
-    const { fechasSemana } = req.body;
-
-    // Validar los datos de entrada
-    if (!uid || !fechaInicio || !fechaFin || !fechasSemana) {
-      return res.status(400).json({ message: 'Faltan datos obligatorios en la solicitud', uid, fechaInicio, fechaFin, fechasSemana });
-    }
-
-    // Buscar el documento de MacrosSemanal por uid, fechaInicio y fechaFin
-    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio, fechaFin });
-
-    // Verificar si se encontró el documento
-    if (!macrosSemanal) {
-      return res.status(404).json({ message: 'No se encontró el documento de MacrosSemanal' });
-    }
-
-    // Actualizar la fecha en el documento semanal
-    for (const dia in macrosSemanal.semana) {
-      if (fechasSemana.hasOwnProperty(dia)) {
-        macrosSemanal.semana[dia].fecha = fechasSemana[dia];
+    try {
+      // Obtener los datos de la solicitud
+      const { uid, fechaInicio, fechaFin } = req.params;
+      const { fechasSemana } = req.body;
+  
+      // Validar los datos de entrada
+      if (!uid || !fechaInicio || !fechaFin || !fechasSemana) {
+        return res.status(400).json({ message: 'Faltan datos obligatorios en la solicitud'});
       }
+  
+      // Buscar el documento de MacrosSemanal por uid, fechaInicio y fechaFin
+      let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio, fechaFin });
+  
+      // Verificar si se encontró el documento
+      if (!macrosSemanal) {
+        return res.status(404).json({ message: 'No se encontró el documento de MacrosSemanal' });
+      }
+  
+      
+      macrosSemanal.semana.lunes.fecha = fechasSemana.Lunes
+      macrosSemanal.semana.martes.fecha = fechasSemana.Martes
+      macrosSemanal.semana.miercoles.fecha = fechasSemana.Miércoles
+      macrosSemanal.semana.jueves.fecha = fechasSemana.Jueves
+      macrosSemanal.semana.viernes.fecha = fechasSemana.Viernes
+      macrosSemanal.semana.sabado.fecha = fechasSemana.Sábado
+      macrosSemanal.semana.domingo.fecha = fechasSemana.Domingo
+      
+  
+      // Guardar el documento actualizado en la base de datos
+      await macrosSemanal.save();
+  
+      // Devolver una respuesta con los datos actualizados
+      res.status(200).json({ message: 'MacrosSemanal actualizado correctamente', fechasSemana});
+    } catch (err) {
+      console.error('Error al actualizar el MacrosSemanal:', err);
+      res.status(500).json({ message: 'Error al actualizar el MacrosSemanal' });
     }
-
-    // Guardar el documento actualizado en la base de datos
-    await macrosSemanal.save();
-
-    // Devolver una respuesta con los datos actualizados
-    res.status(200).json({ message: 'MacrosSemanal actualizado correctamente', macrosSemanal });
-  } catch (err) {
-    console.error('Error al actualizar el MacrosSemanal:', err);
-    res.status(500).json({ message: 'Error al actualizar el MacrosSemanal' });
-  }
-};
+  };
