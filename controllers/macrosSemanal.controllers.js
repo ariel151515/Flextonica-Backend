@@ -288,7 +288,7 @@ exports.actualizaDatosEnPorcentajesEnElDiaDeLaSemana = async (req, res) => {
             macrosSemanal.semana.martes.porcentajeProteinas = porcentajeProteinas;
         }
 
-        if(dia === 'Miercoles'){
+        if(dia === 'Miércoles'){
             // Actualizar los campos del objetivo con los datos proporcionados
             macrosSemanal.semana.miercoles.kcal = kcal;
             macrosSemanal.semana.miercoles.gramosCarbohidratos = gramosCarbohidratos;
@@ -324,7 +324,7 @@ exports.actualizaDatosEnPorcentajesEnElDiaDeLaSemana = async (req, res) => {
             macrosSemanal.semana.viernes.porcentajeProteinas = porcentajeProteinas;
         }
 
-        if(dia === 'Sabado'){
+        if(dia === 'Sábado'){
             // Actualizar los campos del objetivo con los datos proporcionados
             macrosSemanal.semana.sabado.kcal = kcal;
             macrosSemanal.semana.sabado.gramosCarbohidratos = gramosCarbohidratos;
