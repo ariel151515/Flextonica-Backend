@@ -430,6 +430,7 @@ exports.actualizafechaactualenlasemana = async (req, res) => {
   
       // Devolver una respuesta con los datos actualizados
       res.status(200).json({ message: 'MacrosSemanal actualizado correctamente', fechasSemana});
+      
     } catch (err) {
       console.error('Error al actualizar el MacrosSemanal:', err);
       res.status(500).json({ message: 'Error al actualizar el MacrosSemanal' });
