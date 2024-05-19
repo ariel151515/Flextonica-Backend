@@ -469,7 +469,7 @@ exports.filtraDocumentoPorFecha = async (req, res) => {
         }
 
         if (diasSemana.length > 0) {
-            res.status(200).json(diasSemana); // Devuelve todos los días que coinciden con la fecha
+            res.status(200).json(diasSemana[0]); // Devuelve todos los días que coinciden con la fecha
         } else {
             res.status(404).json({ message: 'No se encontraron datos para la fecha proporcionada.' });
         }
