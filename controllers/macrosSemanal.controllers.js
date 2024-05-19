@@ -436,3 +436,45 @@ exports.actualizafechaactualenlasemana = async (req, res) => {
       res.status(500).json({ message: 'Error al actualizar el MacrosSemanal' });
     }
   };
+
+
+// Filtra por fecha diaria en macros semanal
+exports.filtraDocumentoPorFecha = async (req, res) => {
+    try {
+        const { uid, fecha } = req.params;
+
+        // Realiza la búsqueda en la colección adecuada
+        const result = await MacrosSemanal.findOne({
+            uid: uid,
+            $or: [
+                { "semana.lunes.fecha": fecha },
+                { "semana.martes.fecha": fecha },
+                { "semana.miercoles.fecha": fecha },
+                { "semana.jueves.fecha": fecha },
+                { "semana.viernes.fecha": fecha },
+                { "semana.sabado.fecha": fecha },
+                { "semana.domingo.fecha": fecha }
+            ]
+        });
+
+        // Crear un array para almacenar los días de la semana
+        const diasSemana = [];
+
+        // Iterar sobre los días de la semana
+        for (const dia of ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']) {
+            // Verificar si el día coincide con la fecha y agregarlo al array si es así
+            if (result.semana[dia].fecha === fecha) {
+                diasSemana.push(result.semana[dia]);
+            }
+        }
+
+        if (diasSemana.length > 0) {
+            res.status(200).json(diasSemana[0]); // Devuelve solo el primer objeto del array
+        } else {
+            res.status(404).json({ message: 'No se encontraron datos para la fecha proporcionada.' });
+        }
+    } catch (err) {
+        console.error('Error al buscar el documento por fecha:', err);
+        res.status(500).json({ message: 'Error al buscar el documento por fecha.' });
+    }
+};

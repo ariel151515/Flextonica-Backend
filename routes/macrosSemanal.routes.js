@@ -25,9 +25,11 @@ router.put('/actualizaDatosEnPorcentajesEnElDiaDeLaSemana/:uid/:fechaInicio/:fec
 // Actualiza nota semanal
 router.put('/putnotasemanal/:uid/:fechaInicio/:fechaFin/', ctrl.putNotaSemanal);
 
-
 // Actualiza la fecha en el documento semanal
 router.put('/actualizafechaactualenlasemana/:uid/:fechaInicio/:fechaFin/', ctrl.actualizafechaactualenlasemana);
+
+// Filtra por fecha diaria en macros semanal
+router.get('/filtradocumentoporfecha/:uid/:fecha/', ctrl.filtraDocumentoPorFecha);
 
 
 module.exports = router;
