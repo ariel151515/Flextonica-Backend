@@ -14,7 +14,7 @@ exports.creaObjetivo = async (req, res) => {
          const objetivoExistente = await Objetivo.findOne({ uid });
 
          if (objetivoExistente) {
-             console.log('Ya existe un objetivo para este usuario');
+             //console.log('Ya existe un objetivo para este usuario');
              return res.status(400).json({ message: 'Ya existe un objetivo para este usuario' });
          }
 

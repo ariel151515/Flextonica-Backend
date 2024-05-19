@@ -18,13 +18,13 @@ exports.createUserWithFirebaseUIDInMongo = async (req, res) => {
        const savedUser = await newUser.save();
 
        // Registro para verificar que se haya guardado el usuario correctamente
-       console.log('Usuario guardado:', savedUser);
+       //console.log('Usuario guardado:', savedUser);
 
        // Responde con el usuario recién creado
        res.status(201).json({ savedUser });
 
     } catch (err) {
-        console.error(err);
+        //console.error(err);
         res.status(500).json({ message: 'Error al crear el usuario' });
     }
 };
@@ -48,7 +48,7 @@ exports.getUserByFirebaseUIDFromMongo = async (req, res) => {
             res.status(404).json({ message: 'Usuario no encontrado' });
         }
     } catch (err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json({ message: 'Error al obtener el usuario' });
     }
 };
@@ -73,7 +73,7 @@ exports.getPremiumStatus = async (req, res) => {
             res.status(404).json({ message: 'Usuario no encontrado' });
         }
     } catch (err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json({ message: 'Error al obtener el usuario' });
     }
 }

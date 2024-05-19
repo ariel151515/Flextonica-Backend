@@ -50,7 +50,7 @@ exports.macrosSemanal = async (req, res) => {
         res.status(201).json({ message: 'MacrosSemana creado correctamente' });
 
     } catch (err) {
-        console.log('Error al crear macrosSemana', err);
+        //console.log('Error al crear macrosSemana', err);
         res.status(500).json({ message: 'Error al crear macrosSemana' });
     }
 }
@@ -105,7 +105,7 @@ exports.getMacrosSemanal = async (req, res) => {
         res.status(200).json(macrosSemanal);
 
     } catch (err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json({ message: 'Error al buscar o crear los macros semanales' });
     }
 }
@@ -122,7 +122,7 @@ exports.getMacrosSemanalUno = async (req, res) => {
         res.status(200).json(macrosSemanal);
 
     } catch (err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json({ message: 'Error al buscar o crear los macros semanales' });
     }
 }
@@ -432,7 +432,7 @@ exports.actualizafechaactualenlasemana = async (req, res) => {
       res.status(200).json({ message: 'MacrosSemanal actualizado correctamente', fechasSemana});
       
     } catch (err) {
-      console.error('Error al actualizar el MacrosSemanal:', err);
+     // console.error('Error al actualizar el MacrosSemanal:', err);
       res.status(500).json({ message: 'Error al actualizar el MacrosSemanal' });
     }
   };
