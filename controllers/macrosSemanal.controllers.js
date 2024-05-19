@@ -457,7 +457,7 @@ exports.filtraDocumentoPorFecha = async (req, res) => {
             ]
         });
 
-        // Crear un array para almacenar los días de la semana
+        // Crear un array para almacenar los días de la semana que coinciden con la fecha
         const diasSemana = [];
 
         // Iterar sobre los días de la semana
@@ -469,7 +469,7 @@ exports.filtraDocumentoPorFecha = async (req, res) => {
         }
 
         if (diasSemana.length > 0) {
-            res.status(200).json(diasSemana[0]); // Devuelve solo el primer objeto del array
+            res.status(200).json(diasSemana); // Devuelve todos los días que coinciden con la fecha
         } else {
             res.status(404).json({ message: 'No se encontraron datos para la fecha proporcionada.' });
         }
