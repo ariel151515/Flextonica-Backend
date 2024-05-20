@@ -104,6 +104,72 @@ exports.macrosSemanal = async (req, res) => {
                                
                             ]
                         },
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
                     ]
                 }, // Datos para el lunes
                 martes: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el martes
