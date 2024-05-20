@@ -27,8 +27,8 @@ const macrosSemanalSchema = new Schema({
             porcentajeProteinas: String,
             comidas: [
                 {
-                    nombre:String, 
-                    alimentos: [
+                    Nombre:String, 
+                    Alimentos: [
                         {
                             Nombre: String, 
                             Calorias: String,
