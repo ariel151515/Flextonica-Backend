@@ -39,24 +39,6 @@ exports.macrosSemanal = async (req, res) => {
                     porcentajeProteinas:'0',
                     comidas:[
                         {
-                            Nombre:'Desayuno', 
-                            Alimentos: [
-                                {
-                                    Nombre:'Pechuga de pollo', 
-                                    Calorias:'1300',
-
-                                },
-                                {
-                                    Nombre:'Pechuga de pollo', 
-                                    Calorias:'1300'
-                                },
-                                {
-                                    Nombre:'Pechuga de pollo', 
-                                    Calorias:'1300'
-                                }
-                            ]
-                        },
-                        {
                             Nombre:'Merienda', 
                             Alimentos: [
                                 {
@@ -118,7 +100,7 @@ exports.macrosSemanal = async (req, res) => {
                                     VitaminaC:'',
                                     Calcio:'',
                                     Hierro:''
-                                },
+                                }
                                
                             ]
                         },
