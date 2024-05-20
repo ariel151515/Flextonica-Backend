@@ -44,6 +44,14 @@ exports.macrosSemanal = async (req, res) => {
                                 {
                                     nombre:'pechuga de pollo', 
                                     calorias:'1300'
+                                },
+                                {
+                                    nombre:'pechuga de pollo', 
+                                    calorias:'1300'
+                                },
+                                {
+                                    nombre:'pechuga de pollo', 
+                                    calorias:'1300'
                                 }
                             ]
                         },
@@ -52,6 +60,18 @@ exports.macrosSemanal = async (req, res) => {
                             alimentos: [
                                 {
                                     nombre:'pan frances', 
+                                    calorias:'1300'
+                                },
+                                {
+                                    nombre:'pechuga de pollo', 
+                                    calorias:'1300'
+                                },
+                                {
+                                    nombre:'pechuga de pollo', 
+                                    calorias:'1300'
+                                },
+                                {
+                                    nombre:'pechuga de pollo', 
                                     calorias:'1300'
                                 }
                             ]
