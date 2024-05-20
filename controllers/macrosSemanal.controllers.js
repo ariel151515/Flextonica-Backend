@@ -28,7 +28,24 @@ exports.macrosSemanal = async (req, res) => {
                 restantes: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' } // Cantidad restante para alcanzar los objetivos
             },
             semana: {
-                lunes: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el lunes
+                lunes: { 
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                          desayuno:[{nombre:'pechuga de poyo', calorias:'1600'}, {nombre:'pechuga de poyo', calorias:'1600'}],
+                        },
+                        {
+                          merienda:[{nombre:'pechuga de poyo', calorias:'1600'}, {nombre:'pechuga de poyo', calorias:'1600'}],
+                        }
+                    ] 
+                }, // Datos para el lunes
                 martes: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el martes
                 miercoles: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el miércoles
                 jueves: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el jueves
