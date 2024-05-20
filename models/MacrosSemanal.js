@@ -25,14 +25,7 @@ const macrosSemanalSchema = new Schema({
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
             porcentajeProteinas: String,
-            comidas:[
-                {
-                  desayuno:[{nombre:'pechuga de poyo', calorias:'1600'}, {nombre:'pechuga de poyo', calorias:'1600'}],
-                },
-                {
-                  merienda:[{nombre:'pechuga de poyo', calorias:'1600'}, {nombre:'pechuga de poyo', calorias:'1600'}],
-                }
-            ]
+            comidas: [{nombre:String}] 
         }, 
        martes: { 
             fecha: String, 
