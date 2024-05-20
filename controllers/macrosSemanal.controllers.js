@@ -39,41 +39,87 @@ exports.macrosSemanal = async (req, res) => {
                     porcentajeProteinas:'0',
                     comidas:[
                         {
-                            nombre:'Desayuno', 
-                            alimentos: [
+                            Nombre:'Desayuno', 
+                            Alimentos: [
                                 {
-                                    nombre:'pechuga de pollo', 
-                                    calorias:'1300'
+                                    Nombre:'Pechuga de pollo', 
+                                    Calorias:'1300',
+
                                 },
                                 {
-                                    nombre:'pechuga de pollo', 
-                                    calorias:'1300'
+                                    Nombre:'Pechuga de pollo', 
+                                    Calorias:'1300'
                                 },
                                 {
-                                    nombre:'pechuga de pollo', 
-                                    calorias:'1300'
+                                    Nombre:'Pechuga de pollo', 
+                                    Calorias:'1300'
                                 }
                             ]
                         },
                         {
-                            nombre:'Merienda', 
-                            alimentos: [
+                            Nombre:'Merienda', 
+                            Alimentos: [
                                 {
-                                    nombre:'pan frances', 
-                                    calorias:'1300'
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
                                 },
                                 {
-                                    nombre:'pechuga de pollo', 
-                                    calorias:'1300'
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
                                 },
                                 {
-                                    nombre:'pechuga de pollo', 
-                                    calorias:'1300'
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
                                 },
-                                {
-                                    nombre:'pechuga de pollo', 
-                                    calorias:'1300'
-                                }
+                               
                             ]
                         },
                     ]

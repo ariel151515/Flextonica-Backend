@@ -25,7 +25,33 @@ const macrosSemanalSchema = new Schema({
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
             porcentajeProteinas: String,
-            comidas: [{nombre:String, alimentos: [{nombre:String, calorias:String}]}] 
+            comidas: [
+                {
+                    nombre:String, 
+                    alimentos: [
+                        {
+                            Nombre: String, 
+                            Calorias: String,
+                            Proteinas: String,
+                            Carbohidratos: String,
+                            Fibra: String,
+                            Azucar: String,
+                            Grasas: String,
+                            GrasasSaturadas: String,
+                            GrasasPoliinsaaturadas: String,
+                            GrasasMonoinsaturadas: String,
+                            GrasasTrans: String,
+                            Colesterol: String,
+                            Sodio: String,
+                            Potasio: String,
+                            VitaminaA: String,
+                            VitaminaC: String,
+                            Calcio: String,
+                            Hierro: String
+                        }
+                    ]
+                }
+            ] 
         }, 
        martes: { 
             fecha: String, 
