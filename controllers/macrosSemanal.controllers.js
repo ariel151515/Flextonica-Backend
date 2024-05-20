@@ -105,7 +105,7 @@ exports.macrosSemanal = async (req, res) => {
                             ]
                         },
                         {
-                            Nombre:'Merienda', 
+                            Nombre:'Desayuno', 
                             Alimentos: [
                                 {
                                     Nombre:'Pan frances', 
