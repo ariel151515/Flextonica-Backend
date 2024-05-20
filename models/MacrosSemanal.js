@@ -16,13 +16,84 @@ const macrosSemanalSchema = new Schema({
     },
     // Datos de la semana para cada día
     semana: {
-       lunes: { fecha: String, kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String}, // Datos para el lunes
-       martes: { fecha: String, kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
-       miercoles: { fecha: String, kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
-       jueves: { fecha: String, kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
-       viernes: { fecha: String, kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
-       sabado: { fecha: String, kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String},
-       domingo: { fecha: String, kcal: String, gramosCarbohidratos: String, gramosGrasas: String, gramosProteinas: String, porcentajeCarbohidratos: String, porcentajeGrasas: String, porcentajeProteinas: String}
+       lunes: { 
+            fecha: String, 
+            kcal: String, 
+            gramosCarbohidratos: String, 
+            gramosGrasas: String, 
+            gramosProteinas: String, 
+            porcentajeCarbohidratos: String, 
+            porcentajeGrasas: String, 
+            porcentajeProteinas: String,
+            comidas:[
+                {
+                  desayuno:[{nombre:'pechuga de poyo', calorias:'1600'}, {nombre:'pechuga de poyo', calorias:'1600'}],
+                },
+                {
+                  merienda:[{nombre:'pechuga de poyo', calorias:'1600'}, {nombre:'pechuga de poyo', calorias:'1600'}],
+                }
+            ]
+        }, 
+       martes: { 
+            fecha: String, 
+            kcal: String, 
+            gramosCarbohidratos: String, 
+            gramosGrasas: String, 
+            gramosProteinas: String, 
+            porcentajeCarbohidratos: String, 
+            porcentajeGrasas: String, 
+            porcentajeProteinas: String
+        },
+       miercoles: { 
+            fecha: String, 
+            kcal: String, 
+            gramosCarbohidratos: String, 
+            gramosGrasas: String, 
+            gramosProteinas: String, 
+            porcentajeCarbohidratos: String, 
+            porcentajeGrasas: String, 
+            porcentajeProteinas: String
+        },
+       jueves: { 
+            fecha: String, 
+            kcal: String, 
+            gramosCarbohidratos: String, 
+            gramosGrasas: String, 
+            gramosProteinas: String, 
+            porcentajeCarbohidratos: String, 
+            porcentajeGrasas: String, 
+            porcentajeProteinas: String
+        },
+       viernes: { 
+            fecha: String, 
+            kcal: String, 
+            gramosCarbohidratos: String, 
+            gramosGrasas: String, 
+            gramosProteinas: String, 
+            porcentajeCarbohidratos: String, 
+            porcentajeGrasas: String, 
+            porcentajeProteinas: String
+        },
+       sabado: { 
+            fecha: String, 
+            kcal: String, 
+            gramosCarbohidratos: String, 
+            gramosGrasas: String, 
+            gramosProteinas: String, 
+            porcentajeCarbohidratos: String, 
+            porcentajeGrasas: String, 
+            porcentajeProteinas: String
+        },
+       domingo: { 
+            fecha: String, 
+            kcal: String, 
+            gramosCarbohidratos: String, 
+            gramosGrasas: String, 
+            gramosProteinas: String, 
+            porcentajeCarbohidratos: String, 
+            porcentajeGrasas: String, 
+            porcentajeProteinas: String
+        }
     },
     nota: {
         tipo: String,
@@ -41,3 +112,4 @@ const macrosSemanalSchema = new Schema({
 
 // Exportar el modelo 'MacrosSemanal' basado en el esquema
 module.exports = model('MacrosSemanal', macrosSemanalSchema);
+
