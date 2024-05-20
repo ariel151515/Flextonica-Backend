@@ -37,7 +37,7 @@ exports.macrosSemanal = async (req, res) => {
                     porcentajeCarbohidratos:'0', 
                     porcentajeGrasas:'0', 
                     porcentajeProteinas:'0',
-                    comidas:[{nombre:'Desayuno'},{nombre:'Merienda'}] 
+                    comidas:[{nombre:'Desayuno', alimentos: [{nombre:'pechuga de pollo', calorias:'1300'},{nombre:'pechuga de pollo', calorias:'1300'}]}, {nombre:'Desayuno', alimentos: [{nombre:'pechuga de pollo', calorias:'1300'},{nombre:'pechuga de pollo', calorias:'1300'}]}] 
                 }, // Datos para el lunes
                 martes: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el martes
                 miercoles: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el miércoles
