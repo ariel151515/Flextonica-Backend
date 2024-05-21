@@ -17,6 +17,7 @@ const macrosSemanalSchema = new Schema({
     // Datos de la semana para cada día
     semana: {
        lunes: { 
+            nota: String,
             fecha: String, 
             kcal: String, 
             gramosCarbohidratos: String, 
@@ -52,8 +53,9 @@ const macrosSemanalSchema = new Schema({
                     ]
                 }
             ] 
-        }, 
-       martes: { 
+        }, // Fin Lunes
+        martes: { 
+            nota: String,
             fecha: String, 
             kcal: String, 
             gramosCarbohidratos: String, 
@@ -61,9 +63,37 @@ const macrosSemanalSchema = new Schema({
             gramosProteinas: String, 
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
-            porcentajeProteinas: String
-        },
-       miercoles: { 
+            porcentajeProteinas: String,
+            comidas: [
+                {
+                    Nombre:String, 
+                    Alimentos: [
+                        {
+                            Nombre: String, 
+                            Calorias: String,
+                            Proteinas: String,
+                            Carbohidratos: String,
+                            Fibra: String,
+                            Azucar: String,
+                            Grasas: String,
+                            GrasasSaturadas: String,
+                            GrasasPoliinsaaturadas: String,
+                            GrasasMonoinsaturadas: String,
+                            GrasasTrans: String,
+                            Colesterol: String,
+                            Sodio: String,
+                            Potasio: String,
+                            VitaminaA: String,
+                            VitaminaC: String,
+                            Calcio: String,
+                            Hierro: String
+                        }
+                    ]
+                }
+            ] 
+        }, // Fin Martes
+        miercoles: { 
+            nota: String,
             fecha: String, 
             kcal: String, 
             gramosCarbohidratos: String, 
@@ -71,9 +101,37 @@ const macrosSemanalSchema = new Schema({
             gramosProteinas: String, 
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
-            porcentajeProteinas: String
-        },
-       jueves: { 
+            porcentajeProteinas: String,
+            comidas: [
+                {
+                    Nombre:String, 
+                    Alimentos: [
+                        {
+                            Nombre: String, 
+                            Calorias: String,
+                            Proteinas: String,
+                            Carbohidratos: String,
+                            Fibra: String,
+                            Azucar: String,
+                            Grasas: String,
+                            GrasasSaturadas: String,
+                            GrasasPoliinsaaturadas: String,
+                            GrasasMonoinsaturadas: String,
+                            GrasasTrans: String,
+                            Colesterol: String,
+                            Sodio: String,
+                            Potasio: String,
+                            VitaminaA: String,
+                            VitaminaC: String,
+                            Calcio: String,
+                            Hierro: String
+                        }
+                    ]
+                }
+            ] 
+        }, // Fin Miercoles
+        jueves: { 
+            nota: String,
             fecha: String, 
             kcal: String, 
             gramosCarbohidratos: String, 
@@ -81,9 +139,37 @@ const macrosSemanalSchema = new Schema({
             gramosProteinas: String, 
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
-            porcentajeProteinas: String
-        },
-       viernes: { 
+            porcentajeProteinas: String,
+            comidas: [
+                {
+                    Nombre:String, 
+                    Alimentos: [
+                        {
+                            Nombre: String, 
+                            Calorias: String,
+                            Proteinas: String,
+                            Carbohidratos: String,
+                            Fibra: String,
+                            Azucar: String,
+                            Grasas: String,
+                            GrasasSaturadas: String,
+                            GrasasPoliinsaaturadas: String,
+                            GrasasMonoinsaturadas: String,
+                            GrasasTrans: String,
+                            Colesterol: String,
+                            Sodio: String,
+                            Potasio: String,
+                            VitaminaA: String,
+                            VitaminaC: String,
+                            Calcio: String,
+                            Hierro: String
+                        }
+                    ]
+                }
+            ] 
+        }, // Fin Jueves
+        viernes: { 
+            nota: String,
             fecha: String, 
             kcal: String, 
             gramosCarbohidratos: String, 
@@ -91,9 +177,37 @@ const macrosSemanalSchema = new Schema({
             gramosProteinas: String, 
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
-            porcentajeProteinas: String
-        },
-       sabado: { 
+            porcentajeProteinas: String,
+            comidas: [
+                {
+                    Nombre:String, 
+                    Alimentos: [
+                        {
+                            Nombre: String, 
+                            Calorias: String,
+                            Proteinas: String,
+                            Carbohidratos: String,
+                            Fibra: String,
+                            Azucar: String,
+                            Grasas: String,
+                            GrasasSaturadas: String,
+                            GrasasPoliinsaaturadas: String,
+                            GrasasMonoinsaturadas: String,
+                            GrasasTrans: String,
+                            Colesterol: String,
+                            Sodio: String,
+                            Potasio: String,
+                            VitaminaA: String,
+                            VitaminaC: String,
+                            Calcio: String,
+                            Hierro: String
+                        }
+                    ]
+                }
+            ] 
+        }, // Fin Viernes
+        Sabado: { 
+            nota: String,
             fecha: String, 
             kcal: String, 
             gramosCarbohidratos: String, 
@@ -101,9 +215,37 @@ const macrosSemanalSchema = new Schema({
             gramosProteinas: String, 
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
-            porcentajeProteinas: String
-        },
-       domingo: { 
+            porcentajeProteinas: String,
+            comidas: [
+                {
+                    Nombre:String, 
+                    Alimentos: [
+                        {
+                            Nombre: String, 
+                            Calorias: String,
+                            Proteinas: String,
+                            Carbohidratos: String,
+                            Fibra: String,
+                            Azucar: String,
+                            Grasas: String,
+                            GrasasSaturadas: String,
+                            GrasasPoliinsaaturadas: String,
+                            GrasasMonoinsaturadas: String,
+                            GrasasTrans: String,
+                            Colesterol: String,
+                            Sodio: String,
+                            Potasio: String,
+                            VitaminaA: String,
+                            VitaminaC: String,
+                            Calcio: String,
+                            Hierro: String
+                        }
+                    ]
+                }
+            ] 
+        }, // Fin Sabado
+        domingo: { 
+            nota: String,
             fecha: String, 
             kcal: String, 
             gramosCarbohidratos: String, 
@@ -111,12 +253,35 @@ const macrosSemanalSchema = new Schema({
             gramosProteinas: String, 
             porcentajeCarbohidratos: String, 
             porcentajeGrasas: String, 
-            porcentajeProteinas: String
-        }
-    },
-    nota: {
-        tipo: String,
-        contenido: String
+            porcentajeProteinas: String,
+            comidas: [
+                {
+                    Nombre:String, 
+                    Alimentos: [
+                        {
+                            Nombre: String, 
+                            Calorias: String,
+                            Proteinas: String,
+                            Carbohidratos: String,
+                            Fibra: String,
+                            Azucar: String,
+                            Grasas: String,
+                            GrasasSaturadas: String,
+                            GrasasPoliinsaaturadas: String,
+                            GrasasMonoinsaturadas: String,
+                            GrasasTrans: String,
+                            Colesterol: String,
+                            Sodio: String,
+                            Potasio: String,
+                            VitaminaA: String,
+                            VitaminaC: String,
+                            Calcio: String,
+                            Hierro: String
+                        }
+                    ]
+                }
+            ] 
+        }, // Fin Domingo
     },
     fechaInicio: {
         type: String,
