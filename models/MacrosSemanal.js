@@ -206,7 +206,7 @@ const macrosSemanalSchema = new Schema({
                 }
             ] 
         }, // Fin Viernes
-        Sabado: { 
+        sabado: { 
             nota: String,
             fecha: String, 
             kcal: String, 
