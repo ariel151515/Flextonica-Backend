@@ -234,7 +234,7 @@ exports.getMacrosSemanal = async (req, res) => {
                     domingo: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' } // Datos para el domingo
                 },
                 nota: {
-                    contenido: '0'
+                    contenido: ''
                 },
                 fechaInicio: inicioSemana,
                 fechaFin: finSemana
