@@ -2371,41 +2371,6 @@ exports.actualizaDatosEnPorcentajesEnElDiaDeLaSemana = async (req, res) => {
 }
 
 
-
-// Actualiza nota semanal
-exports.putNotaSemanal = async (req, res) => {
-    const { uid, fechaInicio, fechaFin} = req.params;
-    const { nota } = req.body;
-
-  try{
-    // Buscar el objetivo por uid
-    let macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio, fechaFin });
-
-     // Si no se encuentra el objetivo, devolver un mensaje de error
-     if (!macrosSemanal) {
-        console.log(uid, inicioSemana, finSemana)
-        return res.status(404).json({ message: 'No se pudo actualizar la nota, MacrosSemanal no encontrado', macrosSemanal });
-    }
-
-
-     // Actualizar los campos del objetivo con los datos proporcionados
-     macrosSemanal.nota.contenido = nota
-   
-
-    // Guardar el objetivo actualizado en la base de datos
-    await macrosSemanal.save();
-
-    // Devolver una respuesta con los datos actualizados
-    res.status(200).json({ message: 'macrosSemanal actualizado correctamente', macrosSemanal});
-  
-  }catch(err) {
-    // console.error('Error al actualizar el objetivo:', err);
-    res.status(500).json({ message: 'Error al actualizar el macrosSemanal' });
-  }
-
-}
-
-
 exports.actualizafechaactualenlasemana = async (req, res) => {
     try {
       // Obtener los datos de la solicitud
@@ -2448,6 +2413,7 @@ exports.actualizafechaactualenlasemana = async (req, res) => {
   };
 
 
+
 // Filtra por fecha diaria en macros semanal
 exports.filtraDocumentoPorFecha = async (req, res) => {
     try {
@@ -2486,5 +2452,52 @@ exports.filtraDocumentoPorFecha = async (req, res) => {
     } catch (err) {
         console.error('Error al buscar el documento por fecha:', err);
         res.status(500).json({ message: 'Error al buscar el documento por fecha.' });
+    }
+};
+
+
+
+// Actualiza nota semanal
+exports.putNotaSemanal = async (req, res) => {
+    const { uid, fecha } = req.params;
+    const { nota } = req.body;
+
+    try {
+        // Realiza la búsqueda en la colección adecuada
+        const macrosSemanal = await MacrosSemanal.findOne({
+            uid: uid,
+            $or: [
+                { "semana.lunes.fecha": fecha },
+                { "semana.martes.fecha": fecha },
+                { "semana.miercoles.fecha": fecha },
+                { "semana.jueves.fecha": fecha },
+                { "semana.viernes.fecha": fecha },
+                { "semana.sabado.fecha": fecha },
+                { "semana.domingo.fecha": fecha }
+            ]
+        });
+
+        if (!macrosSemanal) {
+            return res.status(404).json({ message: 'No se encontraron datos para la fecha proporcionada.' });
+        }
+
+        // Identificar y actualizar el día que coincide con la fecha proporcionada
+        let diaActualizado;
+        for (const dia of ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']) {
+            if (macrosSemanal.semana[dia].fecha === fecha) {
+                macrosSemanal.semana[dia].nota = nota;
+                diaActualizado = macrosSemanal.semana[dia];
+                break;
+            }
+        }
+
+        // Guardar el objetivo actualizado en la base de datos
+        await macrosSemanal.save();
+
+        // Devolver el día actualizado
+        res.status(200).json(diaActualizado);
+    } catch (err) {
+        console.error('Error al actualizar el objetivo:', err);
+        res.status(500).json({ message: 'Error al actualizar el macrosSemanal' });
     }
 };

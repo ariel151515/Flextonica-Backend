@@ -22,14 +22,14 @@ router.put('/actualizarDatosObjetivoBoxSemanal/:uid/:inicioSemana/:finSemana/', 
 // Actualiza los datos de los dias de la semana (macros en gramos y %, tambien calorias)
 router.put('/actualizaDatosEnPorcentajesEnElDiaDeLaSemana/:uid/:fechaInicio/:fechaFin/', ctrl.actualizaDatosEnPorcentajesEnElDiaDeLaSemana);
 
-// Actualiza nota semanal
-router.put('/putnotasemanal/:uid/:fechaInicio/:fechaFin/', ctrl.putNotaSemanal);
-
 // Actualiza la fecha en el documento semanal
 router.put('/actualizafechaactualenlasemana/:uid/:fechaInicio/:fechaFin/', ctrl.actualizafechaactualenlasemana);
 
 // Filtra por fecha diaria en macros semanal
 router.get('/filtradocumentoporfecha/:uid/:fecha/', ctrl.filtraDocumentoPorFecha);
+
+// Actualiza nota semanal
+router.put('/putnotasemanal/:uid/:fecha/', ctrl.putNotaSemanal);
 
 
 module.exports = router;
