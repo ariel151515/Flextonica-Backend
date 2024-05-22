@@ -1078,29 +1078,1034 @@ exports.getMacrosSemanal = async (req, res) => {
 
         if (!macrosSemanal) {
 
-            // Si no se encuentra, crea un nuevo documento de macrosSemanal
-            const newMacrosSemanal = new MacrosSemanal({
-                uid,
-                objetivos: {
-                    objetivo: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Objetivo diario de macronutrientes
-                    totales: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Totales planeados para la semana
-                    restantes: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' } // Cantidad restante para alcanzar los objetivos
-                },
-                semana: {
-                    lunes: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el lunes
-                    martes: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el martes
-                    miercoles: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el miércoles
-                    jueves: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el jueves
-                    viernes: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el viernes
-                    sabado: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' }, // Datos para el sábado
-                    domingo: { fecha: '', kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0',gramosProteinas: '0', porcentajeCarbohidratos:'0', porcentajeGrasas:'0', porcentajeProteinas:'0' } // Datos para el domingo
-                },
-                nota: {
-                    contenido: ''
-                },
-                fechaInicio: inicioSemana,
-                fechaFin: finSemana
-            });
+        // Crear un nuevo documento de macrosSemanal
+        const newMacrosSemanal = new MacrosSemanal({ 
+            uid,
+            objetivos: {
+                objetivo: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Objetivo diario de macronutrientes
+                totales: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Totales planeados para la semana
+                restantes: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' } // Cantidad restante para alcanzar los objetivos
+            },
+            semana: {
+                lunes: { 
+                    nota:'',
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                        {
+                            Nombre:'Desayuno', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                    ]
+                }, // Fin lunes
+                martes: { 
+                    nota:'',
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                        {
+                            Nombre:'Desayuno', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                    ]
+                }, // Datos para el Martes
+                miercoles: { 
+                    nota:'',
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                        {
+                            Nombre:'Desayuno', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                    ]
+                }, // Datos para el Miercoles
+                jueves: { 
+                    nota:'',
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                        {
+                            Nombre:'Desayuno', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                    ]
+                }, // Datos para el Jueves
+                viernes: { 
+                    nota:'',
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                        {
+                            Nombre:'Desayuno', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                    ]
+                }, // Datos para el Viernes
+                sabado: { 
+                    nota:'',
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                        {
+                            Nombre:'Desayuno', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                    ]
+                }, // Datos para el Sabado
+                domingo: { 
+                    nota:'',
+                    fecha: '',
+                    kcal: '0', 
+                    gramosCarbohidratos: '0', 
+                    gramosGrasas: '0',
+                    gramosProteinas: '0', 
+                    porcentajeCarbohidratos:'0', 
+                    porcentajeGrasas:'0', 
+                    porcentajeProteinas:'0',
+                    comidas:[
+                        {
+                            Nombre:'Merienda', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                        {
+                            Nombre:'Desayuno', 
+                            Alimentos: [
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                },
+                                {
+                                    Nombre:'Pan frances', 
+                                    Calorias:'1300',
+                                    Proteinas:'',
+                                    Carbohidratos:'',
+                                    Fibra:'',
+                                    Azucar:'',
+                                    Grasas:'',
+                                    GrasasSaturadas:'',
+                                    GrasasPoliinsaaturadas:'',
+                                    GrasasMonoinsaturadas:'',
+                                    GrasasTrans:'',
+                                    Colesterol:'',
+                                    Sodio:'',
+                                    Potasio:'',
+                                    VitaminaA:'',
+                                    VitaminaC:'',
+                                    Calcio:'',
+                                    Hierro:''
+                                }
+                               
+                            ]
+                        },
+                    ]
+                }, // Datos para el Domingo
+            },
+            fechaInicio: inicioSemana,
+            fechaFin: finSemana
+        });
 
             // Guarda el nuevo documento en la base de datos
             macrosSemanal = await newMacrosSemanal.save();
