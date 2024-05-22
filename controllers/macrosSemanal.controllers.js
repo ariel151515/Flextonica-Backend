@@ -1044,9 +1044,6 @@ exports.macrosSemanal = async (req, res) => {
                     ]
                 }, // Datos para el Domingo
             },
-            nota: {
-                contenido: ''
-            },
             fechaInicio: inicioSemana,
             fechaFin: finSemana
         });
