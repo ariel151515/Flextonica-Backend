@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     });
   });
 
-// importaciones de las rutas
+// Importaciones de las rutas
 const userRoutes = require('../routes/user.routes.js');
 const objetivoRoutes = require('../routes/objetivos.routes.js');
 const macrosSemanalRoutes = require('../routes/macrosSemanal.routes.js');

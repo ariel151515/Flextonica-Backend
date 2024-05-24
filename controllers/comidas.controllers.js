@@ -60,21 +60,27 @@ exports.creaComida = async (req, res) => {
 exports.deleteComida = async (req, res) => {
     try {
         const { userId, coleccionId, comidaId } = req.params;
+        const { dia } = req.body; // Assuming 'dia' is provided in the request body
 
-        // Encuentra y elimina la comida del documento apropiado en la colección
+        // Construct the dynamic path for the specific day
+        const pathToComidas = `semana.${dia}.comidas`;
+
+        // Update the document, pulling the specific comida from the nested array
         const resultado = await MacrosSemanal.findOneAndUpdate(
             { uid: userId, _id: coleccionId },
-            { $pull: { "semana.lunes.comidas": { _id: comidaId } } },
-            { new: true } // Esto garantiza que devolvamos el documento actualizado
+            { $pull: { [pathToComidas]: { _id: comidaId } } },
+            { new: true } // This ensures the updated document is returned
         );
 
-     return res.status(200).json({ message: 'Comida eliminada correctamente.'});
+        if (!resultado) {
+            return res.status(404).json({ message: 'No se encontró la comida o el documento.' });
+        }
+
+        return res.status(200).json({ message: 'Comida eliminada correctamente.', updatedDocument: resultado });
 
     } catch (error) {
         console.error('Error al eliminar la comida:', error);
         res.status(500).json({ message: 'Error al eliminar la comida. Detalles: ' + error.message });
     }
 };
-
-
 
