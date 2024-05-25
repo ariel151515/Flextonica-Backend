@@ -7,6 +7,6 @@ const ctrl = require('../controllers/comidas.controllers');
 router.post('/creacomida/:uid/:fecha/', ctrl.creaComida);
 
 // Delete comidas
-router.delete('/deletecomida/:userId/:coleccionId/:comidaId/', ctrl.deleteComida);
+router.delete('/deletecomida/:userId/:comidaId/', ctrl.deleteComida);
 
 module.exports = router;

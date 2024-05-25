@@ -59,7 +59,7 @@ exports.creaComida = async (req, res) => {
 // Delete obj de comida 
 exports.deleteComida = async (req, res) => {
     try {
-        const { userId, coleccionId, comidaId } = req.params;
+        const { userId, comidaId } = req.params;
         const { dia } = req.body; // Assuming 'dia' is provided in the request body
 
         // Construct the dynamic path for the specific day
@@ -67,7 +67,7 @@ exports.deleteComida = async (req, res) => {
 
         // Update the document, pulling the specific comida from the nested array
         const resultado = await MacrosSemanal.findOneAndUpdate(
-            { uid: userId, _id: coleccionId },
+            { uid: userId },
             { $pull: { [pathToComidas]: { _id: comidaId } } },
             { new: true } // This ensures the updated document is returned
         );
@@ -83,4 +83,5 @@ exports.deleteComida = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la comida. Detalles: ' + error.message });
     }
 };
+
 
