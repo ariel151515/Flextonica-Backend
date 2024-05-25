@@ -88,11 +88,11 @@ exports.deleteComida = async (req, res) => {
 // Edita el nombre de la comida
 exports.editarNombreComida = async (req, res) => {
     try {
-        const { userId, coleccionId, comidaId } = req.params;
+        const { userId, comidaId } = req.params;
         const { dia, nuevoNombre } = req.body; // Suponiendo que 'dia' y 'nuevoNombre' se proporcionan en el cuerpo de la solicitud
         
         // Encuentra el documento correspondiente al usuario
-        const documento = await MacrosSemanal.findOne({ uid: userId, _id: coleccionId });
+        const documento = await MacrosSemanal.findOne({ uid: userId });
 
         // Verifica si el día especificado existe en el documento
         if (!documento.semana.hasOwnProperty(dia)) {
