@@ -85,3 +85,39 @@ exports.deleteComida = async (req, res) => {
 };
 
 
+// Edita el nombre de la comida
+exports.editarNombreComida = async (req, res) => {
+    try {
+        const { userId, coleccionId, comidaId } = req.params;
+        const { dia, nuevoNombre } = req.body; // Suponiendo que 'dia' y 'nuevoNombre' se proporcionan en el cuerpo de la solicitud
+        
+        // Encuentra el documento correspondiente al usuario
+        const documento = await MacrosSemanal.findOne({ uid: userId, _id: coleccionId });
+
+        // Verifica si el día especificado existe en el documento
+        if (!documento.semana.hasOwnProperty(dia)) {
+            return res.status(404).json({ message: 'No se encontró el día especificado.' });
+        }
+
+        const result = documento.semana[dia].comidas; // Aquí se accede correctamente a la propiedad del día
+
+        // Encuentra la comida con el ID específico
+        const comida = result.find(comida => comida._id == comidaId);
+
+        if (!comida) {
+            return res.status(404).json({ message: 'No se encontró la comida con el ID proporcionado.' });
+        }
+
+        // Actualiza el nombre de la comida
+        comida.Nombre = nuevoNombre;
+
+        // Guarda el documento actualizado
+        await documento.save();
+
+        return res.status(200).json({ message: 'Nombre de la comida actualizado correctamente.', comidaActualizada: comida });
+
+    } catch (error) {
+        console.error('Error al editar el nombre de la comida:', error);
+        res.status(500).json({ message: 'Error al editar el nombre de la comida. Detalles: ' + error.message });
+    }
+};
