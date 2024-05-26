@@ -10,7 +10,7 @@ router.post('/creaalimento/', ctrl.creaAlimento);
 router.delete('/eliminaalimento/:uid/:alimentoId/', ctrl.eliminaAlimento);
 
 // Editar comidas
-//router.put('/editaralimento/:uid/:alimentoId/', ctrl.editaAlimento);
+router.put('/editaralimento/:uid/:alimentoId/', ctrl.editaAlimento);
 
 
 module.exports = router;

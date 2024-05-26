@@ -74,4 +74,54 @@ exports.eliminaAlimento = async (req, res) => {
 
 
 // Edita obj de alimento
-//exports.editaAlimento = async (req, res) => {}
+// Edita un alimento por _id y uid
+exports.editaAlimento = async (req, res) => {
+    try {
+        const { uid, alimentoId } = req.params;
+        const { 
+            marca,
+            descripcion,
+            porcionEnGramos,
+            calorias,
+            proteinas,
+            carbohidratos,
+            grasas,
+            caloriasPorGramo,
+            proteinasPorGramo,
+            carbohidratosPorGramo,
+            grasasPorGramo,
+            saludable
+        } = req.body;
+
+        // Busca y actualiza el alimento por _id y uid
+        const updatedAlimento = await Alimento.findOneAndUpdate(
+            { uid, _id: alimentoId },
+            { 
+                marca,
+                descripcion,
+                porcionEnGramos,
+                calorias,
+                proteinas,
+                carbohidratos,
+                grasas,
+                caloriasPorGramo,
+                proteinasPorGramo,
+                carbohidratosPorGramo,
+                grasasPorGramo,
+                saludable
+            },
+            { new: true } // Devuelve el documento después de la actualización
+        );
+
+        if (!updatedAlimento) {
+            return res.status(404).json({ message: 'Alimento no encontrado' });
+        }
+
+        // Responde con el alimento actualizado
+        res.status(200).json({ message: '¡Alimento actualizado con éxito!', updatedAlimento });
+
+    } catch (err) {
+        console.error('Error al editar alimento', err);
+        res.status(500).json({ message: 'Error al editar alimento' });
+    }
+}
