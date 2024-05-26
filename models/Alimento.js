@@ -1,59 +1,55 @@
 const { Schema, model } = require("mongoose");
 
-const comidasSchema = new Schema({
-    idComida: { // a la comida que pertenece
+const alimentoSchema = new Schema({
+    uid: { 
         type: String,
         unique: false,
     },
-    edad: {
+    marca: { 
         type: String,
         unique: false,
     },
-    pesoInicial: {
+    descripcion: { 
         type: String,
         unique: false,
     },
-    nivelDeActividad: {
+    porcionEnGramos: { 
         type: String,
         unique: false,
     },
-    balanceEnergetico: {
+    calorias: { 
         type: String,
         unique: false,
     },
-    porcentaje: {
+    proteinas: { 
         type: String,
         unique: false,
     },
-    proteinas: {
-        type: String,
-        unique: false,
-        },
-    carbohidratos: {
-        type: String,
-        unique: false,
-        },
-    grasas: {
-        type: String,
-        unique: false,
-        },
-    margen: {
+    carbohidratos: { 
         type: String,
         unique: false,
     },
-    caloriasaconsumir: {
+    grasas: { 
         type: String,
         unique: false,
     },
-    gramosProteinas: {
+    caloriasPorGramo: { 
         type: String,
         unique: false,
     },
-    gramosCarbohidratos: {
+    proteinasPorGramo: { 
         type: String,
         unique: false,
     },
-    gramosGrasas: {
+    carbohidratosPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    grasasPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    saludable: { 
         type: String,
         unique: false,
     },
@@ -61,4 +57,4 @@ const comidasSchema = new Schema({
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
 
-module.exports = model('Comidas', comidasSchema);
+module.exports = model('Alimento', alimentoSchema);
