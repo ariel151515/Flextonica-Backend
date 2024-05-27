@@ -29,7 +29,51 @@ const alimentoSchema = new Schema({
         type: String,
         unique: false,
     },
-    grasas: { 
+    grasasTotales: { 
+        type: String,
+        unique: false,
+    },
+    grasasTrans: { 
+        type: String,
+        unique: false,
+    },
+    colesterol: { 
+        type: String,
+        unique: false,
+    },
+    sodio: { 
+        type: String,
+        unique: false,
+    },
+    fibraDietetica: { 
+        type: String,
+        unique: false,
+    },
+    azucares: { 
+        type: String,
+        unique: false,
+    },
+    calcio: { 
+        type: String,
+        unique: false,
+    },
+    potasio: { 
+        type: String,
+        unique: false,
+    },
+    alcohol: { 
+        type: String,
+        unique: false,
+    },
+    hierro: { 
+        type: String,
+        unique: false,
+    },
+    vitaminaA: { 
+        type: String,
+        unique: false,
+    },
+    vitaminaC: { 
         type: String,
         unique: false,
     },
@@ -45,11 +89,51 @@ const alimentoSchema = new Schema({
         type: String,
         unique: false,
     },
-    grasasPorGramo: { 
+    grasasTotalesPorGramo: { 
         type: String,
         unique: false,
     },
-    saludable: { 
+    grasasTransPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    colesterolPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    sodioPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    fibraDieteticaPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    azucaresPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    calcioPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    potasioPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    alcoholPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    hierroPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    vitaminaAPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    vitaminaCPorGramo: { 
         type: String,
         unique: false,
     },
