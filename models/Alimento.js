@@ -137,6 +137,15 @@ const alimentoSchema = new Schema({
         type: String,
         unique: false,
     },
+    vitaminaCPorGramo: { 
+        type: String,
+        unique: false,
+    },
+    saludable: {
+        type: Boolean,
+        unique: false,
+        required: true // Asegura que este campo es obligatorio
+    },
 }, {
     timestamps: true // Habilita los campos createdAt y updatedAt
 });
