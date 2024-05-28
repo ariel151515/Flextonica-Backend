@@ -12,5 +12,7 @@ router.delete('/eliminaalimento/:uid/:alimentoId/', ctrl.eliminaAlimento);
 // Editar comidas
 router.put('/editaralimento/:uid/:alimentoId/', ctrl.editaAlimento);
 
+// Trae todos los alimentos
+router.get('/alimentos/:uid', ctrl.getAlimentos);
 
 module.exports = router;
