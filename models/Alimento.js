@@ -85,8 +85,8 @@ const alimentoSchema = new Schema({
         type: String,
         unique: false,
     },
-    saludable: { 
-        type: Boolean,
+    nutrientes: { 
+        type: String,
         unique: false,
     },
     proteinasPorGramo: { 
