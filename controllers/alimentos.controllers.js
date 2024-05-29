@@ -114,7 +114,7 @@ exports.eliminaAlimento = async (req, res) => {
         }
 
         // Responde con el alimento eliminado
-        res.status(200).json({ message: '¡Alimento eliminado con éxito!', deletedAlimento });
+        res.status(200).json({ message: '¡Alimento eliminado con éxito!'});
 
     } catch (err) {
         console.error('Error al eliminar alimento', err);
