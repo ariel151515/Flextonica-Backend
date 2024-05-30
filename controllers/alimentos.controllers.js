@@ -70,6 +70,7 @@ exports.creaAlimento = async (req, res) => {
                     calcio,
                     hierro,
                     nutrientes,
+                    caloriasPorGramo:'',
                     proteinasPorGramo,
                     carbohidratosPorGramo,
                     fibraPorGramo,
@@ -123,8 +124,7 @@ exports.eliminaAlimento = async (req, res) => {
 }
 
 
-// Edita obj de alimento
-// Edita un alimento por _id y uid
+// Edita obj de alimento por _id y uid
 exports.editaAlimento = async (req, res) => {
     try {
         const { uid, alimentoId } = req.params;
@@ -150,6 +150,7 @@ exports.editaAlimento = async (req, res) => {
             calcio,
             hierro,
             nutrientes,
+            caloriasPorGramo,
             proteinasPorGramo,
             carbohidratosPorGramo,
             fibraPorGramo,
@@ -193,6 +194,7 @@ exports.editaAlimento = async (req, res) => {
                 calcio,
                 hierro,
                 nutrientes,
+                caloriasPorGramo,
                 proteinasPorGramo,
                 carbohidratosPorGramo,
                 fibraPorGramo,
