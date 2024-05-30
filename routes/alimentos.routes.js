@@ -16,7 +16,7 @@ router.put('/editaralimento/:uid/:alimentoId/', ctrl.editaAlimento);
 router.get('/alimentos/:uid', ctrl.getAlimentos);
 
 // Trae alimento por id
-router.get('/alimento/:uid', ctrl.getAlimento);
+router.get('/alimento/:userId/:alimentoId/', ctrl.getAlimento);
 
 
 module.exports = router;

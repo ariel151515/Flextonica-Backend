@@ -248,9 +248,9 @@ exports.getAlimentos = async (req, res) => {
 
 // Trae alimento por id
 exports.getAlimento = async (req, res) => {
-    const { uid, id } = req.params;
+    const { userId, alimentoId } = req.params;
     try {
-        const alimento = await Alimento.find({ uid, _id:id });
+        const alimento = await Alimento.find({ uid:userId, _id:alimentoId });
         if (!alimento) {
             return res.status(404).json({ message: 'No se encontraron resultados' });
         }
