@@ -89,6 +89,10 @@ const alimentoSchema = new Schema({
         type: String,
         unique: false,
     },
+    caloriasPorGramo: { 
+        type: String,
+        unique: false,
+    },
     proteinasPorGramo: { 
         type: String,
         unique: false,
