@@ -244,3 +244,19 @@ exports.getAlimentos = async (req, res) => {
         res.status(500).json({ message: 'Error al traer alimentos' });
     }
 };
+
+
+// Trae alimento por id
+exports.getAlimento = async (req, res) => {
+    const { uid, id } = req.params;
+    try {
+        const alimento = await Alimento.find({ uid, _id:id });
+        if (!alimento) {
+            return res.status(404).json({ message: 'No se encontraron resultados' });
+        }
+        res.status(200).json(alimento);
+    } catch (err) {
+        console.error('Error al traer alimentos', err);
+        res.status(500).json({ message: 'Error al traer alimentos' });
+    }
+};
