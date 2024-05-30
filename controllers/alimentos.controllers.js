@@ -230,7 +230,7 @@ exports.editaAlimento = async (req, res) => {
 }
 
 
-// Trae todos los alimentos
+// Trae todos los alimentos del usuario
 exports.getAlimentos = async (req, res) => {
     const { uid } = req.params;
     try {
