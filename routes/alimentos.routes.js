@@ -18,5 +18,8 @@ router.get('/alimentos/:uid', ctrl.getAlimentos);
 // Trae alimento por id
 router.get('/alimento/:userId/:alimentoId/', ctrl.getAlimento);
 
+// Trae todos los alimentos de la db de flextonica
+router.get('/alimentos/', ctrl.getAlimentosTodos);
+
 
 module.exports = router;

@@ -260,3 +260,18 @@ exports.getAlimento = async (req, res) => {
         res.status(500).json({ message: 'Error al traer alimentos' });
     }
 };
+
+
+// Trae todos los alimentos de la db de Flextonica
+exports.getAlimentosTodos = async (req, res) => {
+    try {
+        const alimentos = await Alimento.find();
+        if (alimentos.length === 0) {
+            return res.status(404).json({ message: 'No se encontraron resultados' });
+        }
+        res.status(200).json(alimentos);
+    } catch (err) {
+        console.error('Error al traer alimentos', err);
+        res.status(500).json({ message: 'Error al traer alimentos' });
+    }
+};
