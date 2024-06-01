@@ -246,22 +246,6 @@ exports.getAlimentos = async (req, res) => {
 };
 
 
-// Trae alimento por id
-exports.getAlimento = async (req, res) => {
-    const { userId, alimentoId } = req.params;
-    try {
-        const alimento = await Alimento.find({ uid:userId, _id:alimentoId });
-        if (!alimento) {
-            return res.status(404).json({ message: 'No se encontraron resultados' });
-        }
-        res.status(200).json(alimento);
-    } catch (err) {
-        console.error('Error al traer alimentos', err);
-        res.status(500).json({ message: 'Error al traer alimentos' });
-    }
-};
-
-
 // Trae todos los alimentos de la db de Flextonica
 exports.getAlimentosTodos = async (req, res) => {
     try {
@@ -270,6 +254,22 @@ exports.getAlimentosTodos = async (req, res) => {
             return res.status(404).json({ message: 'No se encontraron resultados' });
         }
         res.status(200).json(alimentos);
+    } catch (err) {
+        console.error('Error al traer alimentos', err);
+        res.status(500).json({ message: 'Error al traer alimentos' });
+    }
+};
+
+
+// Trae alimento por id
+exports.getAlimento = async (req, res) => {
+    const { userId, alimentoId } = req.params;
+    try {
+        const alimento = await Alimento.findOne({ uid: userId, _id: alimentoId });
+        if (!alimento) {
+            return res.status(404).json({ message: 'No se encontraron resultados' });
+        }
+        res.status(200).json(alimento);
     } catch (err) {
         console.error('Error al traer alimentos', err);
         res.status(500).json({ message: 'Error al traer alimentos' });
