@@ -238,17 +238,12 @@ exports.getAlimentos = async (req, res) => {
         if (alimentos.length === 0) {
             return res.status(404).json({ message: 'No se encontraron resultados' });
         }
-        alimentos.forEach(alimento => {
-            res.write(JSON.stringify(alimento));
-            res.write('\n'); // Agrega un salto de línea después de cada alimento
-        });
-        res.end(); // Finaliza la respuesta HTTP
+        res.status(200).json(alimentos);
     } catch (err) {
         console.error('Error al traer alimentos', err);
         res.status(500).json({ message: 'Error al traer alimentos' });
     }
 };
-
 
 
 // Trae todos los alimentos de la db de Flextonica
