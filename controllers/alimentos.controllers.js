@@ -236,7 +236,8 @@ exports.getAlimentos = async (req, res) => {
     try {
         const alimentos = await Alimento.find({ uid });
         if (alimentos.length === 0) {
-            return res.status(404).json({ message: 'No se encontraron resultados' });
+            // Devolver un array vacío si no se encuentran alimentos
+            return res.status(200).json([]);
         }
         res.status(200).json(alimentos);
     } catch (err) {
@@ -244,6 +245,7 @@ exports.getAlimentos = async (req, res) => {
         res.status(500).json({ message: 'Error al traer alimentos' });
     }
 };
+
 
 
 // Trae todos los alimentos de la db de Flextonica
