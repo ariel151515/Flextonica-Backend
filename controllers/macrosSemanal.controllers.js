@@ -8,19 +8,31 @@ exports.macrosSemanal = async (req, res) => {
     // Verificar si se proporciona un UID
     if (!uid) {
         return res.status(400).json({ message: 'Se requiere un UID para crear un objetivo' });
-     }
+    }
 
     try {
         // Verificar si ya existe un documento macrosSemanal
-        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio:inicioSemana, fechaFin:finSemana});
+        const macrosSemanal = await MacrosSemanal.findOne({ uid, fechaInicio: inicioSemana, fechaFin: finSemana });
 
         if (macrosSemanal) {
             console.log('Ya existe un macrosSemanal para este usuario');
             return res.status(400).json({ message: 'Ya existe un objeto MacrosSemanal para este usuario' });
         }
 
+        // Calcular las fechas de cada día de la semana
+        const fechaInicio = moment(inicioSemana);
+        const semana = {
+            lunes: fechaInicio.clone().format('YYYY-MM-DD'),
+            martes: fechaInicio.clone().add(1, 'days').format('YYYY-MM-DD'),
+            miercoles: fechaInicio.clone().add(2, 'days').format('YYYY-MM-DD'),
+            jueves: fechaInicio.clone().add(3, 'days').format('YYYY-MM-DD'),
+            viernes: fechaInicio.clone().add(4, 'days').format('YYYY-MM-DD'),
+            sabado: fechaInicio.clone().add(5, 'days').format('YYYY-MM-DD'),
+            domingo: fechaInicio.clone().add(6, 'days').format('YYYY-MM-DD')
+        };
+
         // Crear un nuevo documento de macrosSemanal
-        const newMacrosSemanal = new MacrosSemanal({ 
+        const newMacrosSemanal = new MacrosSemanal({
             uid,
             objetivos: {
                 objetivo: { kcal: '0', gramosCarbohidratos: '0', gramosGrasas: '0', gramosProteinas: '0' }, // Objetivo diario de macronutrientes
@@ -29,88 +41,88 @@ exports.macrosSemanal = async (req, res) => {
             },
             semana: {
                 lunes: { 
-                    nota:'',
-                    fecha: '',
+                    nota: '',
+                    fecha: semana.lunes,
                     kcal: '0', 
                     gramosCarbohidratos: '0', 
                     gramosGrasas: '0',
                     gramosProteinas: '0', 
-                    porcentajeCarbohidratos:'0', 
-                    porcentajeGrasas:'0', 
-                    porcentajeProteinas:'0',
-                    comidas:[]
+                    porcentajeCarbohidratos: '0', 
+                    porcentajeGrasas: '0', 
+                    porcentajeProteinas: '0',
+                    comidas: []
                 }, // Fin lunes
                 martes: { 
-                    nota:'',
-                    fecha: '',
+                    nota: '',
+                    fecha: semana.martes,
                     kcal: '0', 
                     gramosCarbohidratos: '0', 
                     gramosGrasas: '0',
                     gramosProteinas: '0', 
-                    porcentajeCarbohidratos:'0', 
-                    porcentajeGrasas:'0', 
-                    porcentajeProteinas:'0',
-                    comidas:[]
+                    porcentajeCarbohidratos: '0', 
+                    porcentajeGrasas: '0', 
+                    porcentajeProteinas: '0',
+                    comidas: []
                 }, // Datos para el Martes
                 miercoles: { 
-                    nota:'',
-                    fecha: '',
+                    nota: '',
+                    fecha: semana.miercoles,
                     kcal: '0', 
                     gramosCarbohidratos: '0', 
                     gramosGrasas: '0',
                     gramosProteinas: '0', 
-                    porcentajeCarbohidratos:'0', 
-                    porcentajeGrasas:'0', 
-                    porcentajeProteinas:'0',
-                    comidas:[]
+                    porcentajeCarbohidratos: '0', 
+                    porcentajeGrasas: '0', 
+                    porcentajeProteinas: '0',
+                    comidas: []
                 }, // Datos para el Miercoles
                 jueves: { 
-                    nota:'',
-                    fecha: '',
+                    nota: '',
+                    fecha: semana.jueves,
                     kcal: '0', 
                     gramosCarbohidratos: '0', 
                     gramosGrasas: '0',
                     gramosProteinas: '0', 
-                    porcentajeCarbohidratos:'0', 
-                    porcentajeGrasas:'0', 
-                    porcentajeProteinas:'0',
-                    comidas:[]
+                    porcentajeCarbohidratos: '0', 
+                    porcentajeGrasas: '0', 
+                    porcentajeProteinas: '0',
+                    comidas: []
                 }, // Datos para el Jueves
                 viernes: { 
-                    nota:'',
-                    fecha: '',
+                    nota: '',
+                    fecha: semana.viernes,
                     kcal: '0', 
                     gramosCarbohidratos: '0', 
                     gramosGrasas: '0',
                     gramosProteinas: '0', 
-                    porcentajeCarbohidratos:'0', 
-                    porcentajeGrasas:'0', 
-                    porcentajeProteinas:'0',
-                    comidas:[]
+                    porcentajeCarbohidratos: '0', 
+                    porcentajeGrasas: '0', 
+                    porcentajeProteinas: '0',
+                    comidas: []
                 }, // Datos para el Viernes
                 sabado: { 
-                    nota:'',
-                    fecha: '',
+                    nota: '',
+                    fecha: semana.sabado,
                     kcal: '0', 
                     gramosCarbohidratos: '0', 
                     gramosGrasas: '0',
                     gramosProteinas: '0', 
-                    porcentajeCarbohidratos:'0', 
-                    porcentajeGrasas:'0', 
-                    porcentajeProteinas:'0',
-                    comidas:[]
+                    porcentajeCarbohidratos: '0', 
+                    porcentajeGrasas: '0', 
+                    porcentajeProteinas: '0',
+                    comidas: []
                 }, // Datos para el Sabado
                 domingo: { 
-                    nota:'',
-                    fecha: '',
+                    nota: '',
+                    fecha: semana.domingo,
                     kcal: '0', 
                     gramosCarbohidratos: '0', 
                     gramosGrasas: '0',
                     gramosProteinas: '0', 
-                    porcentajeCarbohidratos:'0', 
-                    porcentajeGrasas:'0', 
-                    porcentajeProteinas:'0',
-                    comidas:[]
+                    porcentajeCarbohidratos: '0', 
+                    porcentajeGrasas: '0', 
+                    porcentajeProteinas: '0',
+                    comidas: []
                 }, // Datos para el Domingo
             },
             fechaInicio: inicioSemana,
@@ -121,11 +133,11 @@ exports.macrosSemanal = async (req, res) => {
         await newMacrosSemanal.save();
 
         // Enviar una respuesta al cliente
-        res.status(201).json({ message: 'MacrosSemana creado correctamente' });
+        res.status(201).json({ message: 'MacrosSemanal creado correctamente' });
 
     } catch (err) {
-        //console.log('Error al crear macrosSemana', err);
-        res.status(500).json({ message: 'Error al crear macrosSemana' });
+        console.log('Error al crear macrosSemanal', err);
+        res.status(500).json({ message: 'Error al crear macrosSemanal' });
     }
 }
 

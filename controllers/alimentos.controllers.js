@@ -247,7 +247,6 @@ exports.getAlimentos = async (req, res) => {
 };
 
 
-
 // Trae todos los alimentos de la db de Flextonica
 exports.getAlimentosTodos = async (req, res) => {
     try {
